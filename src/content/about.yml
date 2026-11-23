@@ -8,3 +8,49 @@ people:
     role: President
     classYear: "2028"
     headshot: /media/images/headshots/mathew.webp
+  - name: Hailey Meagher
+    role: Vice President
+    classYear: "2028"
+    headshot: /media/images/headshots/hailey.webp
+  - name: Sigmond Kukla
+    role: Team Manager
+    classYear: "2028"
+    headshot: /media/images/headshots/sig.webp
+  - name: Elizabeth Swartz
+    role: Treasurer
+    classYear: "2027"
+    headshot: /media/images/headshots/liz.webp
+
+  - name: Evan Fox
+    role: Payload Lead
+    classYear: "2027"
+    headshot: /media/images/headshots/evan.webp
+  - name: Tyler Russell
+    role: Avionics & Recovery Lead
+    classYear: "2028"
+    headshot: /media/images/headshots/tyler.webp
+  - name: Emily Russo
+    role: Modeling & Simulation Lead
+    classYear: "2029"
+    headshot: /media/images/headshots/emily.webp
+  - name: Jacob Wolbert
+    role: Structures Lead
+    classYear: "2028"
+    headshot: /media/images/headshots/jacob.webp
+
+  - name: Katalina Villalba
+    role: Media Manager
+    classYear: "2028"
+    headshot: /media/images/headshots/kat.webp
+  - name: Daniel Galko
+    role: Sponsorship Chair
+    classYear: "2028"
+    headshot: /media/images/headshots/galko.webp
+  - name: Lucas Monroe
+    role: Certification Chair & Machining Lead
+    classYear: "2027"
+    headshot: /media/images/headshots/lucas.webp
+  - name: Carlos Iraheta Pérez
+    role: Safety Chair
+    classYear: "2030"
+    headshot: /media/images/headshots/carlos.webp
