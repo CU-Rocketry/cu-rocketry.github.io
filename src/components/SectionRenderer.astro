@@ -1,7 +1,7 @@
 ---
 import ContentBand from "./ContentBand.astro";
 import SubteamAccordion from "./SubteamAccordion.astro";
-import PeopleGrid from "./PeopleGrid.astro";
+import Eboard from "./Eboard.astro";
 import PdfViewer from "./PdfViewer.astro";
 
 const { sections = [] } = Astro.props;
@@ -11,6 +11,6 @@ const { sections = [] } = Astro.props;
   const kind = section.type || "splitBand";
   if (kind === "splitBand") return <ContentBand {...section} />;
   if (kind === "accordion") return <SubteamAccordion {...section} />;
-  if (kind === "peopleGrid") return <PeopleGrid {...section} />;
+  if (kind === "peopleGrid") return <Eboard {...section} />;
   if (kind === "pdfEmbed") return <PdfViewer {...section} />;
 })}

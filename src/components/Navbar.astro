@@ -16,7 +16,6 @@ const isActive = (href) => (currentPath === href ? "page" : undefined);
     <nav aria-label="Main navigation">
       <ul class="cur-nav__list">
         <li><a class="cur-nav__link" href="/" aria-current={isActive("/")}>Home</a></li>
-        <li><a class="cur-nav__link" href="/about" aria-current={isActive("/about")}>About</a></li>
         <li class="cur-nav__item--has-sub">
           <a class="cur-nav__link" href={projects[0] ? `/projects/${projects[0].slug}` : "#"}>
             Projects ▾
