@@ -1,0 +1,65 @@
+:root {
+  /* Primary Brand Colors */
+  --cur-green: #004e42;
+  --cur-green-dark: #00382f;
+  --cur-gold: #ffcd00;
+  --cur-white: #ffffff;
+  --cur-black: #161a19;
+
+  /* Warm Neutrals */
+  --cur-grey-1: #d7d2cb;
+  --cur-grey-6: #a59c94;
+  --cur-grey-30: #6e6259;
+
+  /* Secondary Accents (use sparingly) */
+  --cur-sec-green: #7a9a01;
+  --cur-sec-red: #cf4520;
+  --cur-sec-blue-light: #418fde;
+  --cur-sec-blue-dark: #002d72;
+
+  /* Surfaces & UI */
+  --cur-nav-bg: rgba(0, 46, 39, 0.84);
+  --cur-nav-height: 76px;
+  --cur-max-width: 1140px;
+  --cur-prose-width: 760px;
+  --cur-radius: 4px;
+
+  /* Typography */
+  --font-heading: "Montserrat", system-ui, -apple-system, sans-serif;
+  --font-body: "Roboto", system-ui, -apple-system, sans-serif;
+  --font-display: "Nasalization", "Montserrat", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--cur-black);
+  background-color: var(--cur-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.25;
+  margin-top: 0;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cur-container {
+  width: min(var(--cur-max-width), 100% - 2.5rem);
+  margin-inline: auto;
+}
