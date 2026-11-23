@@ -1,14 +1,20 @@
 media:
+  - name: images
+    label: Images
+    input: public/media
+    output: /media
+    rename: safe
+    categories: [image]
   - name: logo
     label: Logo
     input: public/media/logo
     output: /media/logo
     rename: safe
     categories: [image]
-  - name: images
-    label: Images
-    input: public/media
-    output: /media
+  - name: sponsor-logos
+    label: Sponsor Logos
+    input: public/media/logo/sponsors
+    output: /media/logo/sponsors
     rename: safe
     categories: [image]
   - name: docs
@@ -123,7 +129,7 @@ content:
             label: Sponsor Logo
             type: image
             options:
-              media: images
+              media: sponsor-logos
           - { name: description, label: About This Sponsor, type: text }
           - name: showInMarquee
             label: Show in Landing Page Scroller
