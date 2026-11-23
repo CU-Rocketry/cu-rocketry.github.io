@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 import SubteamAccordion from "../components/SubteamAccordion.astro";
-import PeopleGrid from "../components/PeopleGrid.astro";
+import Eboard from "../components/Eboard.astro";
 import SponsorMarquee from "../components/SponsorMarquee.astro";
 import { loadYaml, renderMarkdown } from "../lib/content.js";
 
@@ -25,7 +25,7 @@ const about = loadYaml("about.yaml")
 
   <SubteamAccordion heading="Subteams" items={about.subteams || []} />
   
-  <PeopleGrid heading="Team Leadership" people={about.people || []} theme="light" />
+  <Eboard heading="Executive and Technical Board" people={about.people || []} theme="light" />
 
   <SponsorMarquee sponsors={sponsors.list || []} />
 </BaseLayout>
