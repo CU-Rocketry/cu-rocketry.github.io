@@ -17,6 +17,12 @@ media:
     output: /media/sponsor-logos
     rename: safe
     categories: [image]
+  - name: headshots
+    label: Sponsor Logos
+    input: public/media/images/headshots
+    output: /media/images/headshots
+    rename: safe
+    categories: [image]
   - name: docs
     label: Documents
     input: public/media/docs
@@ -81,18 +87,18 @@ content:
             options:
               media: images
       - name: people
-        label: Team Leadership / Members
+        label: Eboard
         type: object
         list: true
         fields:
-          - { name: name, label: Full Name, type: string, required: true }
-          - { name: role, label: Role / Subteam, type: string, required: true }
-          - { name: classYear, label: Class Year (Optional), type: string }
+          - { name: name, label: Name, type: string, required: true }
+          - { name: role, label: Role, type: string, required: true }
+          - { name: classYear, label: Year, type: string }
           - name: headshot
             label: Headshot Photo
             type: image
             options:
-              media: images
+              media: headshots
 
   # --- 3. Sponsors (Drives BOTH the Landing Marquee & Sponsors Page) ---
   - name: sponsors
