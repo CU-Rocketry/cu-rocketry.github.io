@@ -26,3 +26,66 @@ list:
       landscape—combining global expertise with local manufacturing, innovation,
       and service to meet the nation’s growing energy needs.
     showInMarquee: true
+  - name: Kennametal
+    tier: Gold
+    url: https://www.kennametal.com/
+    logo: /media/sponsor-logos/kennametal.png
+    description: Behind every modern marvel—from the airplanes in the sky to the
+      phone in your hand—are incredibly precise and durable materials.
+      Kennametal creates the advanced tooling and material solutions that help
+      make it all possible.
+    showInMarquee: true
+  - name: THK
+    tier: Gold
+    url: https://www.thk.com/
+    logo: /media/sponsor-logos/thk.png
+    description: "THK's creative ideas and unique technology made the company
+      worldwide pioneers in the development of the Linear Motion (LM) Guide
+      mechanism. Today, our LM Guide devices are an indispensable component of
+      mechanical and electronic systems in a wide variety of industries. "
+    showInMarquee: true
+  - name: GE Aerospace
+    tier: Gold
+    url: GE Aerospace
+    logo: /media/sponsor-logos/ge-aerospace.png
+    description: GE Aerospace is a world leading provider of jet and turboprop
+      engines, as well as integrated systems for commercial ,military, business
+      and general aviation aircraft.
+    showInMarquee: true
+  - name: Sierra Circuits
+    tier: Gold
+    url: https://www.protoexpress.com/
+    logo: /media/sponsor-logos/sierra.png
+    description: At Sierra, we deliver high-quality boards that power AI-driven
+      robotics and help you reduce time to market by 30% with our in-house
+      fabrication, assembly, and quick-turn prototyping capabilities.
+    showInMarquee: true
+  - name: NextPCB
+    tier: Gold
+    url: https://www.nextpcb.com/
+    logo: /media/sponsor-logos/nextpcb.png
+    description: NextPCB, a subsidiary of Huaqiu (HQ) is the world's leading
+      industrial digital manufacturing platform for PCB manufacture, PCB
+      assembly, components distribution, and electronics design verification
+      tools since founding in 2011. Our passion for reliable, fast and
+      cost-effective electronics manufacturing services has transformed the
+      industry, streamlining the entire production process and allowing
+      production efficiency and cost-savings to reach record highs without
+      compromising on reliability.
+    showInMarquee: true
+  - name: Sipeed
+    tier: Green
+    url: https://sipeed.com/
+    logo: /media/sponsor-logos/sipeed.png
+    description: Sipeed offers AI-enabled open-source hardware. Application areas
+      include robotics, agriculture, retail, and other industries.
+    showInMarquee: true
+  - name: Urgenex
+    tier: Green
+    url: https://urgenexrc.com/
+    logo: /media/sponsor-logos/urgenex.png
+    description: URGENEX is a professional RC battery manufacturer, providing high
+      performance RC batteries and excellent customer service for our customers
+      from all over the world. Keeps your fun going longer. Choose URGENEX,
+      Choose the power.
+    showInMarquee: true
