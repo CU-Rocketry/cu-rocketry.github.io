@@ -1,26 +1,31 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
+import SubteamAccordion from "../components/SubteamAccordion.astro";
+import PeopleGrid from "../components/PeopleGrid.astro";
 import SponsorMarquee from "../components/SponsorMarquee.astro";
 import { loadYaml, renderMarkdown } from "../lib/content.js";
 
 const settings = loadYaml("settings.yml");
 const sponsors = loadYaml("sponsors.yml");
+const about = loadYaml("about.yaml")
 ---
 
 <BaseLayout>
   <Hero
     title={settings.heroTitle || "Clarkson University Rocketry"}
-    videoUrl={settings.heroVideoUrl}
     fallbackImage={settings.heroFallbackImage}
   />
 
   <section class="cur-band cur-band--white">
     <div class="cur-container">
-      {settings.missionHeading && <h2>{settings.missionHeading}</h2>}
       <div set:html={renderMarkdown(settings.missionBody)} />
     </div>
   </section>
+
+  <SubteamAccordion heading="Subteams" items={about.subteams || []} />
+  
+  <PeopleGrid heading="Team Leadership" people={about.people || []} theme="light" />
 
   <SponsorMarquee sponsors={sponsors.list || []} />
 </BaseLayout>

@@ -39,19 +39,12 @@ content:
         label: Hero Headline
         type: string
         default: Clarkson University Rocketry
-      - name: heroVideoUrl
-        label: Hero Background Video URL (MP4/WebM from Cloudflare R2)
-        type: string
-        description: Leave blank to use the fallback image only.
       - name: heroFallbackImage
-        label: Hero Poster / Fallback Image
+        label: Hero Image
         type: image
         options:
           media: images
-      - name: missionHeading
-        label: Landing Intro Heading
-        type: string
-      - name: missionBody
+      - name: introBody
         label: Landing Intro Text
         type: rich-text
       - name: socials
@@ -65,7 +58,7 @@ content:
 
   # --- 2. About Page (Subteams Accordion + People Roster) ---
   - name: about
-    label: About & Team Roster
+    label: About
     type: file
     path: src/content/about.yml
     fields:
