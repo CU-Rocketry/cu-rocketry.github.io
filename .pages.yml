@@ -1,20 +1,20 @@
 media:
   - name: images
     label: Images
-    input: public/media
-    output: /media
+    input: public/media/images
+    output: /media/images
     rename: safe
     categories: [image]
-  - name: logo
+  - name: cur-logo
     label: Logo
-    input: public/media/logo
-    output: /media/logo
+    input: public/media/cur-logo
+    output: /media/cur-logo
     rename: safe
     categories: [image]
   - name: sponsor-logos
     label: Sponsor Logos
-    input: public/media/logo/sponsors
-    output: /media/logo/sponsors
+    input: public/media/sponsor-logos
+    output: /media/logo/sponsor-logos
     rename: safe
     categories: [image]
   - name: docs
