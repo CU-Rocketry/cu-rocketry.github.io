@@ -5,7 +5,7 @@ list:
   - name: TANIQ
     tier: Platinum
     url: https://www.taniq.com/
-    logo: public/media/taniq-1.webp
+    logo: /media/logo/sponsor-logos/taniq.webp
     description: TANIQ assists manufacturers with developing composite products and
       production processes. With 18 years of experience, our team has extensive
       knowledge of designing composite parts using TaniqWind software and FEA
