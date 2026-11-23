@@ -4,7 +4,7 @@ subteams:
   - name: Air Brakes & Active Controls
     description: Placeholder subteam description.
 people:
-  - name: Team Lead Name
-    role: Project Manager
+  - name: Mathew Barnhart
+    role: President
     classYear: "2028"
-    headshot: ""
+    headshot: /media/images/headshots/mathew.webp
