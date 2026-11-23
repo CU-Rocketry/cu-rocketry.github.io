@@ -14,7 +14,7 @@ media:
   - name: sponsor-logos
     label: Sponsor Logos
     input: public/media/sponsor-logos
-    output: /media/logo/sponsor-logos
+    output: /media/sponsor-logos
     rename: safe
     categories: [image]
   - name: docs
