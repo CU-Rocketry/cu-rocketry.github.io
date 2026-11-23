@@ -13,3 +13,16 @@ list:
       that are used for internal R&D to support our clients with their product
       and process development.
     showInMarquee: true
+  - name: Siemens Energy
+    tier: Gold
+    url: https://www.siemens-energy.com/
+    logo: /media/sponsor-logos/siemens-energy.png
+    description: >-
+      Siemens Energy is a leader in energy technology supporting companies and
+      countries worldwide in building resilient, affordable and sustainable
+      energy systems society depends on.
+
+      For more than a century, Siemens Energy has supported America’s energy
+      landscape—combining global expertise with local manufacturing, innovation,
+      and service to meet the nation’s growing energy needs.
+    showInMarquee: true
