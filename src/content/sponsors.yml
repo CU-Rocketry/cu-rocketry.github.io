@@ -51,7 +51,7 @@ list:
     description: GE Aerospace is a world leading provider of jet and turboprop
       engines, as well as integrated systems for commercial ,military, business
       and general aviation aircraft.
-    showInMarquee: true
+    showInMarquee: false
   - name: Sierra Circuits
     tier: Gold
     url: https://www.protoexpress.com/
@@ -79,7 +79,7 @@ list:
     logo: /media/sponsor-logos/sipeed.png
     description: Sipeed offers AI-enabled open-source hardware. Application areas
       include robotics, agriculture, retail, and other industries.
-    showInMarquee: true
+    showInMarquee: false
   - name: Urgenex
     tier: Green
     url: https://urgenexrc.com/
@@ -88,4 +88,13 @@ list:
       performance RC batteries and excellent customer service for our customers
       from all over the world. Keeps your fun going longer. Choose URGENEX,
       Choose the power.
+    showInMarquee: false
+  - name: Snap-On
+    tier: Partner
+    url: https://www.snapon.com/
+    logo: /media/sponsor-logos/snap-on.png
+    description: Snap-on Incorporated is an American designer, manufacturer and
+      marketer of high-end tools and equipment for professional use in the
+      transportation industry including the automotive, heavy duty, equipment,
+      marine, aviation, and railroad industries.
     showInMarquee: true
