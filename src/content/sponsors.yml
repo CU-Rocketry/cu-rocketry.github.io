@@ -1,3 +1,14 @@
-intro: Thank you to our sponsors for making our launches possible.
-brochurePdfUrl: ""
-list: []
+intro: SPEED Team sponsorships include three donation levels in addition to
+  industry partners. Clarkson University Rocketry thanks all of our sponsorship
+  partners for their support in making our projects possible!
+list:
+  - name: TANIQ
+    tier: Platinum
+    url: https://www.taniq.com/
+    description: TANIQ assists manufacturers with developing composite products and
+      production processes. With 18 years of experience, our team has extensive
+      knowledge of designing composite parts using TaniqWind software and FEA
+      software for analysis. TANIQ has two in-house robotic prototyping systems
+      that are used for internal R&D to support our clients with their product
+      and process development.
+    showInMarquee: true
