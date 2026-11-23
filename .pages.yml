@@ -1,12 +1,18 @@
 media:
+  - name: logo
+    label: Logo
+    input: public/media/logo
+    output: /media/logo
+    rename: safe
+    categories: [image]
   - name: images
     label: Images
-    input: public/media/images
-    output: /media/images
+    input: public/media
+    output: /media
     rename: safe
     categories: [image]
   - name: docs
-    label: PDFs & Documents
+    label: Documents
     input: public/media/docs
     output: /media/docs
     rename: safe
