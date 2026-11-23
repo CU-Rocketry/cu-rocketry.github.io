@@ -1,11 +1,18 @@
 siteTitle: Clarkson University Rocketry
 heroTitle: Clarkson University Rocketry
-heroVideoUrl: ""
-heroFallbackImage: ""
+heroFallbackImage: /media/img1897.jpg
 missionHeading: Building High-Power Rockets at Clarkson University
-missionBody: Placeholder mission overview. Edit this in Pages CMS.
+missionBody: >+
+  # Our Mission
+
+
+  The Clarkson University Rocketry Team is a student lead competitive design
+  team where students design and fabricate High Power Rockets for personal
+  missions and international rocketry competitions. Team members  apply
+  multidisciplinary engineering principals to practical rocketry applications
+  using Clarkson University’s composites laboratories.
+
 socials:
-  instagram: ""
-  linkedin: ""
-  linktree: ""
-  discord: ""
+  instagram: https://www.instagram.com/clarksonrocketry
+  linkedin: https://www.linkedin.com/company/clarkson-university-rocketry
+  discord: https://discord.gg/fc7W4kMApj
