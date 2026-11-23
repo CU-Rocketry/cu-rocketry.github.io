@@ -401,3 +401,34 @@ figcaption {
     grid-template-columns: auto 1fr auto;
   }
 }
+
+/* --- 9. Links Inside Dark Content Bands (for Pages CMS rich-text) --- */
+.cur-band--green a,
+.cur-band--grey a {
+  color: var(--cur-gold);
+  text-underline-offset: 0.18em;
+}
+
+.cur-band--white a,
+.cur-band--light a {
+  color: var(--cur-green);
+  text-underline-offset: 0.18em;
+}
+
+/* --- 10. Blog / Long-Form Markdown Wrapper --- */
+.cur-prose {
+  width: min(var(--cur-prose-width), 100% - 2.5rem);
+  margin-inline: auto;
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+.cur-prose img {
+  border-radius: var(--cur-radius);
+  margin-block: 1.75rem;
+}
+
+.cur-prose h2,
+.cur-prose h3 {
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+}
