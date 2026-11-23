@@ -1,16 +1,26 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import SponsorMarquee from "../components/SponsorMarquee.astro";
+import { loadYaml, renderMarkdown } from "../lib/content.js";
+
+const settings = loadYaml("settings.yml");
+const sponsors = loadYaml("sponsors.yml");
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <Hero
+    title={settings.heroTitle || "Clarkson University Rocketry"}
+    videoUrl={settings.heroVideoUrl}
+    fallbackImage={settings.heroFallbackImage}
+  />
+
+  <section class="cur-band cur-band--white">
+    <div class="cur-container">
+      {settings.missionHeading && <h2>{settings.missionHeading}</h2>}
+      <div set:html={renderMarkdown(settings.missionBody)} />
+    </div>
+  </section>
+
+  <SponsorMarquee sponsors={sponsors.list || []} />
+</BaseLayout>

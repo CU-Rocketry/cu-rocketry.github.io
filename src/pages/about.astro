@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SubteamAccordion from "../components/SubteamAccordion.astro";
+import PeopleGrid from "../components/PeopleGrid.astro";
+import { loadYaml, renderMarkdown } from "../lib/content.js";
+
+const about = loadYaml("about.yml");
+---
+
+<BaseLayout title="About">
+  <section class="cur-band cur-band--white">
+    <div class="cur-container">
+      <h1>{about.introTitle || "About CUR"}</h1>
+      <div set:html={renderMarkdown(about.introBody)} />
+    </div>
+  </section>
+
+  <SubteamAccordion heading="Subteams" items={about.subteams || []} />
+  <PeopleGrid heading="Team Leadership" people={about.people || []} theme="light" />
+</BaseLayout>

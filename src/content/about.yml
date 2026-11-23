@@ -1,0 +1,10 @@
+introTitle: About Clarkson University Rocketry
+introBody: Placeholder team overview. Edit this in Pages CMS.
+subteams:
+  - name: Air Brakes & Active Controls
+    description: Placeholder subteam description.
+people:
+  - name: Team Lead Name
+    role: Project Manager
+    classYear: "2028"
+    headshot: ""

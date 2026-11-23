@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PdfViewer from "../components/PdfViewer.astro";
+import { loadYaml, renderMarkdown } from "../lib/content.js";
+
+const sponsors = loadYaml("sponsors.yml");
+const tiers = ["Platinum", "Gold", "Green", "Partner"];
+const list = sponsors.list || [];
+---
+
+<BaseLayout title="Sponsors">
+  <section class="cur-band cur-band--white">
+    <div class="cur-container">
+      <h1>Sponsors</h1>
+      <div set:html={renderMarkdown(sponsors.intro)} />
+    </div>
+  </section>
+
+  {tiers.map((tier) => {
+    const items = list.filter((s) => s.tier === tier);
+    if (items.length === 0) return null;
+    return (
+      <section class="cur-band cur-band--white">
+        <div class="cur-container">
+          <h2>{tier} Sponsors</h2>
+          <div class="cur-people-grid">
+            {items.map((sponsor) => (
+              <article>
+                {sponsor.logo && (
+                  <a href={sponsor.url || "#"} target="_blank" rel="noopener">
+                    <img src={sponsor.logo} alt={sponsor.name} style="max-height:90px; margin-bottom:0.75rem;" loading="lazy" />
+                  </a>
+                )}
+                <h3>{sponsor.name}</h3>
+                {sponsor.description && <p>{sponsor.description}</p>}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  })}
+
+  {sponsors.brochurePdfUrl && (
+    <PdfViewer title="Sponsorship Brochure" pdfUrl={sponsors.brochurePdfUrl} />
+  )}
+</BaseLayout>

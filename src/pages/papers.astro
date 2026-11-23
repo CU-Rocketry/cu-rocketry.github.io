@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PdfViewer from "../components/PdfViewer.astro";
+import { loadYaml, renderMarkdown } from "../lib/content.js";
+
+const papers = loadYaml("papers.yml");
+---
+
+<BaseLayout title="Papers">
+  <section class="cur-band cur-band--white">
+    <div class="cur-container">
+      <h1>Technical Papers & Reports</h1>
+      <div set:html={renderMarkdown(papers.intro)} />
+    </div>
+  </section>
+
+  {(papers.documents || []).map((doc) => (
+    <PdfViewer
+      title={`${doc.title}${doc.year ? ` (${doc.year})` : ""}`}
+      summary={doc.summary}
+      pdfUrl={doc.pdfUrl}
+    />
+  ))}
+</BaseLayout>

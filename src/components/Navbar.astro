@@ -1,0 +1,49 @@
+---
+import { loadYaml, loadMarkdownCollection } from "../lib/content.js";
+
+const settings = loadYaml("settings.yml");
+const socials = settings.socials || {};
+const projects = loadMarkdownCollection("projects")
+  .filter((p) => p.data.featured !== false)
+  .sort((a, b) => String(b.data.year).localeCompare(String(a.data.year)));
+
+const currentPath = Astro.url.pathname;
+const isActive = (href) => (currentPath === href ? "page" : undefined);
+---
+
+<header class="cur-header">
+  <div class="cur-container cur-header__inner">
+    <nav aria-label="Main navigation">
+      <ul class="cur-nav__list">
+        <li><a class="cur-nav__link" href="/" aria-current={isActive("/")}>Home</a></li>
+        <li><a class="cur-nav__link" href="/about" aria-current={isActive("/about")}>About</a></li>
+        <li class="cur-nav__item--has-sub">
+          <a class="cur-nav__link" href={projects[0] ? `/projects/${projects[0].slug}` : "#"}>
+            Projects ▾
+          </a>
+          {projects.length > 0 && (
+            <ul class="cur-nav__submenu">
+              {projects.map((project) => (
+                <li><a href={`/projects/${project.slug}`}>{project.data.title}</a></li>
+              ))}
+            </ul>
+          )}
+        </li>
+        <li><a class="cur-nav__link" href="/papers" aria-current={isActive("/papers")}>Papers</a></li>
+        <li><a class="cur-nav__link" href="/sponsors" aria-current={isActive("/sponsors")}>Sponsors</a></li>
+        <li><a class="cur-nav__link" href="/blog" aria-current={isActive("/blog")}>Blog</a></li>
+      </ul>
+    </nav>
+
+    <a class="cur-logo" href="/" aria-label="Clarkson University Rocketry Home">
+      <img src="/media/images/cur-logo.png" alt="CUR Logo" />
+    </a>
+
+    <div class="cur-socials">
+      {socials.instagram && <a class="cur-socials__btn" href={socials.instagram} target="_blank" rel="noopener" aria-label="Instagram">IG</a>}
+      {socials.linkedin && <a class="cur-socials__btn" href={socials.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn">in</a>}
+      {socials.linktree && <a class="cur-socials__btn" href={socials.linktree} target="_blank" rel="noopener" aria-label="Links">↗</a>}
+      {socials.discord && <a class="cur-socials__btn" href={socials.discord} target="_blank" rel="noopener" aria-label="Discord">DC</a>}
+    </div>
+  </div>
+</header>

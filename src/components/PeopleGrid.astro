@@ -1,0 +1,22 @@
+---
+const { heading = "Team Leadership", people = [], theme = "white" } = Astro.props;
+---
+
+<section class={`cur-band cur-band--${theme}`}>
+  <div class="cur-container">
+    {heading && <h2>{heading}</h2>}
+    <div class="cur-people-grid">
+      {people.map((person) => (
+        <article class="cur-person">
+          {person.headshot && (
+            <img class="cur-person__photo" src={person.headshot} alt={person.name} loading="lazy" />
+          )}
+          <h3 class="cur-person__name">{person.name}</h3>
+          <p class="cur-person__role">
+            {person.role}{person.classYear ? ` · ${person.classYear}` : ""}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

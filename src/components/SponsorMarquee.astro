@@ -1,0 +1,16 @@
+---
+const { sponsors = [] } = Astro.props;
+const active = sponsors.filter((s) => s.showInMarquee !== false && s.logo);
+---
+
+{active.length > 0 && (
+  <section class="cur-marquee" aria-label="Our Sponsors">
+    <div class="cur-marquee__track">
+      {[...active, ...active].map((sponsor) => (
+        <a href={sponsor.url || "/sponsors"} target={sponsor.url ? "_blank" : undefined} rel="noopener">
+          <img class="cur-marquee__logo" src={sponsor.logo} alt={sponsor.name} loading="lazy" />
+        </a>
+      ))}
+    </div>
+  </section>
+)}

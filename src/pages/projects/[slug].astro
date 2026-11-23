@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SectionRenderer from "../../components/SectionRenderer.astro";
+import { loadMarkdownCollection } from "../../lib/content.js";
+
+export function getStaticPaths() {
+  return loadMarkdownCollection("projects").map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const blocks = project.data.sections || project.data.bands || [];
+---
+
+<BaseLayout title={project.data.title}>
+  <section class="cur-band cur-band--green">
+    <div class="cur-container">
+      <h1>{project.data.title}</h1>
+      {project.data.year && <p style="margin:0;">Competition Year: {project.data.year}</p>}
+    </div>
+  </section>
+
+  <SectionRenderer sections={blocks} />
+</BaseLayout>

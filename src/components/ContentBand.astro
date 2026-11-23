@@ -1,0 +1,24 @@
+---
+import { renderMarkdown } from "../lib/content.js";
+
+const { theme = "white", imageSide = "left", image, caption, heading, text } = Astro.props;
+const reverseClass = imageSide === "right" ? "cur-split--reverse" : "";
+const html = renderMarkdown(text);
+---
+
+<section class={`cur-band cur-band--${theme}`}>
+  <div class={`cur-container ${image ? `cur-split ${reverseClass}` : ""}`}>
+    {image && (
+      <div class="cur-split__media">
+        <figure style="margin:0;">
+          <img src={image} alt={caption || heading || ""} loading="lazy" />
+          {caption && <figcaption>{caption}</figcaption>}
+        </figure>
+      </div>
+    )}
+    <div class="cur-split__text">
+      {heading && <h2>{heading}</h2>}
+      <div set:html={html} />
+    </div>
+  </div>
+</section>

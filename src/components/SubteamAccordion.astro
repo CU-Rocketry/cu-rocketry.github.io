@@ -1,0 +1,19 @@
+---
+import { renderMarkdown } from "../lib/content.js";
+const { heading, items = [] } = Astro.props;
+---
+
+<section class="cur-band cur-band--white">
+  <div class="cur-container">
+    {heading && <h2>{heading}</h2>}
+    {items.map((item) => (
+      <details class="cur-accordion">
+        <summary>{item.name || item.title}</summary>
+        <div class="cur-accordion__body">
+          <div set:html={renderMarkdown(item.description || item.body)} />
+          {item.photo && <img src={item.photo} alt={item.name || item.title} loading="lazy" />}
+        </div>
+      </details>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,12 @@
+---
+import { loadYaml } from "../lib/content.js";
+const settings = loadYaml("settings.yml");
+const year = new Date().getFullYear();
+---
+
+<footer class="cur-band cur-band--green">
+  <div class="cur-container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; align-items:center;">
+    <p style="margin:0;">&copy; {year} {settings.siteTitle || "Clarkson University Rocketry"}</p>
+    <p style="margin:0;">Potsdam, NY</p>
+  </div>
+</footer>

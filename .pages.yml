@@ -1,0 +1,215 @@
+media:
+  - name: images
+    label: Images
+    input: public/media/images
+    output: /media/images
+    rename: safe
+    categories: [image]
+  - name: docs
+    label: PDFs & Documents
+    input: public/media/docs
+    output: /media/docs
+    rename: safe
+    extensions: [pdf]
+
+content:
+  # --- 1. Global Site & Landing Hero Settings ---
+  - name: settings
+    label: Site & Hero Settings
+    type: file
+    path: src/content/settings.yml
+    fields:
+      - name: siteTitle
+        label: Site Title
+        type: string
+        default: Clarkson University Rocketry
+      - name: heroTitle
+        label: Hero Headline
+        type: string
+        default: Clarkson University Rocketry
+      - name: heroVideoUrl
+        label: Hero Background Video URL (MP4/WebM from Cloudflare R2)
+        type: string
+        description: Leave blank to use the fallback image only.
+      - name: heroFallbackImage
+        label: Hero Poster / Fallback Image
+        type: image
+        options:
+          media: images
+      - name: missionHeading
+        label: Landing Intro Heading
+        type: string
+      - name: missionBody
+        label: Landing Intro Text
+        type: rich-text
+      - name: socials
+        label: Social Media Links
+        type: object
+        fields:
+          - { name: instagram, label: Instagram URL, type: string }
+          - { name: linkedin, label: LinkedIn URL, type: string }
+          - { name: linktree, label: Linktree / Other URL, type: string }
+          - { name: discord, label: Discord Invite URL, type: string }
+
+  # --- 2. About Page (Subteams Accordion + People Roster) ---
+  - name: about
+    label: About & Team Roster
+    type: file
+    path: src/content/about.yml
+    fields:
+      - name: introTitle
+        label: Page Heading
+        type: string
+      - name: introBody
+        label: About Overview
+        type: rich-text
+      - name: subteams
+        label: Subteams (Accordion)
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Subteam Name, type: string, required: true }
+          - { name: description, label: Description, type: rich-text }
+          - name: photo
+            label: Subteam Photo (Optional)
+            type: image
+            options:
+              media: images
+      - name: people
+        label: Team Leadership / Members
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Full Name, type: string, required: true }
+          - { name: role, label: Role / Subteam, type: string, required: true }
+          - { name: classYear, label: Class Year (Optional), type: string }
+          - name: headshot
+            label: Headshot Photo
+            type: image
+            options:
+              media: images
+
+  # --- 3. Sponsors (Drives BOTH the Landing Marquee & Sponsors Page) ---
+  - name: sponsors
+    label: Sponsors
+    type: file
+    path: src/content/sponsors.yml
+    fields:
+      - name: intro
+        label: Sponsors Page Intro
+        type: rich-text
+      - name: brochurePdfUrl
+        label: Sponsorship Brochure PDF (Upload or R2 URL)
+        type: string
+      - name: list
+        label: Sponsor List
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Sponsor Name, type: string, required: true }
+          - name: tier
+            label: Sponsor Tier
+            type: select
+            options:
+              values: [Platinum, Gold, Green, Partner]
+          - { name: url, label: Sponsor Website, type: string }
+          - name: logo
+            label: Sponsor Logo
+            type: image
+            options:
+              media: images
+          - { name: description, label: About This Sponsor, type: text }
+          - name: showInMarquee
+            label: Show in Landing Page Scroller
+            type: boolean
+            default: true
+
+  # --- 4. Papers & Technical Reports ---
+  - name: papers
+    label: Papers & Reports
+    type: file
+    path: src/content/papers.yml
+    fields:
+      - name: intro
+        label: Papers Intro
+        type: rich-text
+      - name: documents
+        label: Published Papers / Reports
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Report Title, type: string, required: true }
+          - { name: year, label: Competition Year, type: string }
+          - { name: summary, label: Short Summary, type: text }
+          - { name: pdfUrl, label: PDF Path or External URL, type: string, required: true }
+
+  # --- 5. Projects (Alternating Color Band Pages like Aurora) ---
+  - name: projects
+    label: Projects
+    type: collection
+    path: src/content/projects
+    filename: "{primary}.md"
+    view:
+      fields: [title, year, featured]
+      sort: [year, title]
+      default: { sort: year, order: desc }
+    fields:
+      - { name: title, label: Rocket / Project Name, type: string, required: true }
+      - { name: year, label: Year (e.g. 2026), type: string, required: true }
+      - { name: featured, label: Show in Projects Dropdown, type: boolean, default: true }
+      - name: heroImage
+        label: Header Image
+        type: image
+        options:
+          media: images
+      - name: bands
+        label: Alternating Page Sections
+        type: object
+        list: true
+        fields:
+          - name: theme
+            label: Background Color
+            type: select
+            default: grey
+            options:
+              values:
+                - { value: grey, label: Warm Grey (#6e6259) }
+                - { value: green, label: Clarkson Green (#004e42) }
+                - { value: white, label: White (#ffffff) }
+          - name: imageSide
+            label: Image Position
+            type: select
+            default: left
+            options:
+              values: [left, right]
+          - name: image
+            label: Section Photo
+            type: image
+            options:
+              media: images
+          - { name: caption, label: Image Caption (Optional), type: string }
+          - { name: heading, label: Section Heading (Optional), type: string }
+          - { name: text, label: Paragraph Content, type: rich-text }
+
+  # --- 6. Blog Posts / Build Logs ---
+  - name: blog
+    label: Blog Posts
+    type: collection
+    path: src/content/blog
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, date, draft]
+      sort: [date, title]
+      default: { sort: date, order: desc }
+    fields:
+      - { name: title, label: Post Title, type: string, required: true }
+      - { name: date, label: Publish Date, type: date, required: true }
+      - { name: author, label: Author, type: string }
+      - { name: draft, label: Draft, type: boolean, default: false }
+      - name: coverImage
+        label: Cover Image
+        type: image
+        options:
+          media: images
+      - { name: excerpt, label: Short Summary, type: text }
+      - { name: body, label: Article Body, type: rich-text }
