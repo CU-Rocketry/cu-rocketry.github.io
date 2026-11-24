@@ -1,8 +1,10 @@
 ---
-const { heading = "Eboard", people = [], theme = "white" } = Astro.props;
+import Divider from "./Divider.astro";
+const { heading = "Eboard", people = [], theme = "white", divider, nextTheme = "white" } = Astro.props;
+const hasDivider = divider?.style && divider.style !== "none";
 ---
 
-<section class={`cur-band cur-band--${theme}`}>
+<section class={`cur-band cur-band--${theme} ${hasDivider ? "cur-band--has-divider" : ""}`}>
   <div class="cur-container">
     {heading && <h2>{heading}</h2>}
     <div class="cur-people-grid">
@@ -19,6 +21,9 @@ const { heading = "Eboard", people = [], theme = "white" } = Astro.props;
       ))}
     </div>
   </div>
+  {hasDivider && (
+    <Divider style={divider.style} stroke={divider.stroke} nextTheme={nextTheme} />
+  )}
 </section>
 
 <style>

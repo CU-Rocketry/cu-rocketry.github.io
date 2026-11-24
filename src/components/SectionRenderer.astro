@@ -4,13 +4,16 @@ import SubteamAccordion from "./SubteamAccordion.astro";
 import Eboard from "./Eboard.astro";
 import PdfViewer from "./PdfViewer.astro";
 
-const { sections = [] } = Astro.props;
+const { sections = [], footerTheme = "green" } = Astro.props;
 ---
 
-{sections.map((section) => {
+{sections.map((section, index) => {
   const kind = section.type || "splitBand";
-  if (kind === "splitBand") return <ContentBand {...section} />;
-  if (kind === "accordion") return <SubteamAccordion {...section} />;
-  if (kind === "peopleGrid") return <Eboard {...section} />;
-  if (kind === "pdfEmbed") return <PdfViewer {...section} />;
+  const nextTheme = sections[index + 1]?.theme || footerTheme;
+  const props = { ...section, nextTheme };
+
+  if (kind === "splitBand" || kind === "textBand") return <ContentBand {...props} />;
+  if (kind === "accordion") return <SubteamAccordion {...props} />;
+  if (kind === "peopleGrid") return <Eboard {...props} />;
+  if (kind === "pdfEmbed") return <PdfViewer {...props} />;
 })}

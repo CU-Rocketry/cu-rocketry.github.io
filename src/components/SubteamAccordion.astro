@@ -1,6 +1,8 @@
 ---
 import { renderMarkdown } from "../lib/content.js";
-const { heading, items = [] } = Astro.props;
+import { Divider } from "./Divider.astro";
+const { heading, items = [], divider, nextTheme = "white" } = Astro.props;
+const hasDivider = divider?.style && divider.style !== "none";
 ---
 
 <section class="cur-band cur-band--white">
@@ -23,6 +25,9 @@ const { heading, items = [] } = Astro.props;
       </details>
     ))}
   </div>
+  {hasDivider && (
+    <Divider style={divider.style} stroke={divider.stroke} nextTheme={nextTheme} />
+  )}
 </section>
 
 <style>

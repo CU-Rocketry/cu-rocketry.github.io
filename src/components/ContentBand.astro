@@ -1,12 +1,14 @@
 ---
 import { renderMarkdown } from "../lib/content.js";
+import Divider from "./Divider.astro";
 
-const { theme = "white", imageSide = "left", image, caption, heading, text } = Astro.props;
+const { theme = "white", imageSide = "left", image, caption, heading, text, divider, nextTheme = "white" } = Astro.props;
+const hasDivider = divider?.style && divider.style !== "none";
 const reverseClass = imageSide === "right" ? "cur-split--reverse" : "";
 const html = renderMarkdown(text);
 ---
 
-<section class={`cur-band cur-band--${theme}`}>
+<section class={`cur-band cur-band--${theme} ${hasDivider ? "cur-band--has-divider" : ""}`}>
   <div class={`cur-container ${image ? `cur-split ${reverseClass}` : ""}`}>
     {image && (
       <div class="cur-split__media">
@@ -21,6 +23,9 @@ const html = renderMarkdown(text);
       <div set:html={html} />
     </div>
   </div>
+  {hasDivider && (
+    <Divider style={divider.style} stroke={divider.stroke} nextTheme={nextTheme} />
+  )}
 </section>
 
 <style>

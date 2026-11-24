@@ -30,6 +30,38 @@ media:
     rename: safe
     extensions: [pdf]
 
+components:
+  divider:
+    type: object
+    label: Divider
+    fields:
+      - name: style
+        label: Shape
+        type: select
+        default: none
+        options:
+          values:
+            - { name: none, label: None }
+            - { name: concave-up, label: Concave Up }
+            - { name: concave-down, label: Concave Down }
+            - { name: wavy, label: Wavy }
+            - { name: slant-right, label: Slant Right }
+            - { name: slant-left, label: Slant Left }
+            - { name: triangle, label: Triangle }
+            - { name: chevron, label: Chevron }
+            - { name: zigzag, label: Zigzag }
+      - name: stroke
+        label: Accent Border Color
+        type: select
+        default: none
+        options:
+          values:
+            - { name: none, label: None }
+            - { name: gold, label: Gold }
+            - { name: green, label: Green }
+            - { name: white, label: White }
+            - { name: grey, label: Grey }
+
 content:
   # --- 1. Global Site & Landing Hero Settings ---
   - name: settings

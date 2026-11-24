@@ -1,6 +1,11 @@
 /* Content band */
 .cur-band {
+  position: relative;
   padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.cur-band--has-divider {
+  padding-bottom: calc(clamp(3rem, 6vw, 5rem) + clamp(32px, 5.5vw, 68px));
 }
 
 .cur-band--white {

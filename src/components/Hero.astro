@@ -1,4 +1,6 @@
 ---
+import Divider from "./Divider.astro";
+
 const { title, fallbackImage } = Astro.props;
 ---
 
@@ -13,10 +15,7 @@ const { title, fallbackImage } = Astro.props;
         <h1 class="cur-hero__title">{title}</h1>
     </div>
 
-    <svg class="cur-hero__curve" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,0 Q720,88 1440,0 L1440,80 L0,80 Z" fill="#ffcd00"></path>
-        <path d="M0,12 Q720,96 1440,12 L1440,80 L0,80 Z" fill="#ffffff"></path>
-    </svg>
+    <Divider style="concave-up" nextTheme="{settings.missionTheme}" stroke="gold" ||/>
 </section>
 
 <style>

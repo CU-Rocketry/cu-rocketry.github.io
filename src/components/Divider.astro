@@ -1,0 +1,64 @@
+---
+const { style = "none", stroke = "none", nextTheme = "white" } = Astro.props;
+
+if (!style || style === "none") return;
+
+const colorMap = {
+  white: "var(--cur-white)",
+  light: "var(--cur-grey-1)",
+  grey: "var(--cur-grey-30)",
+  green: "var(--cur-green)",
+  gold: "var(--cur-gold)",
+};
+
+const fill = colorMap[nextTheme] || "var(--cur-white)";
+const strokeColor = stroke && stroke !== "none" ? colorMap[stroke] : "none";
+
+// Top-edge paths kept within y=6..74 so the accent stroke never clips
+const shapes = {
+  "concave-up": "M0,6 Q720,120 1440,6",
+  "concave-down": "M0,74 Q720,-40 1440,74",
+  "wavy": "M0,40 C360,95 1080,-15 1440,40",
+  "slant-right": "M0,74 L1440,6",
+  "slant-left": "M0,6 L1440,74",
+  "triangle": "M0,74 L720,8 L1440,74",
+  "chevron": "M0,8 L720,74 L1440,8",
+  "zigzag": "M0,62 L120,14 L240,62 L360,14 L480,62 L600,14 L720,62 L840,14 L960,62 L1080,14 L1200,62 L1320,14 L1440,62",
+};
+
+const edge = shapes[style];
+const fillPath = edge ? `${edge} L1440,80 L0,80 Z` : null;
+---
+
+{edge && (
+  <svg
+    class="cur-divider"
+    viewBox="0 0 1440 80"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <path d={fillPath} fill={fill} />
+    {strokeColor !== "none" && (
+      <path
+        d={edge}
+        fill="none"
+        stroke={strokeColor}
+        stroke-width="6"
+        vector-effect="non-scaling-stroke"
+      />
+    )}
+  </svg>
+)}
+
+<style>
+  .cur-divider {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: clamp(32px, 5.5vw, 68px);
+    display: block;
+    pointer-events: none;
+    z-index: 2;
+  }
+</style>
