@@ -1,36 +1,71 @@
 ---
-const { sponsors = [] } = Astro.props;
+import Divider from "./Divider.astro";
+
+const { sponsors = [], theme = "white", divider, nextTheme = "white" } = Astro.props;
 const active = sponsors.filter((s) => s.showInMarquee !== false && s.logo);
+const hasDivider = divider?.style && divider.style !== "none";
 ---
 
 {active.length > 0 && (
-  <section class="cur-marquee" aria-label="Our Sponsors">
+  <section
+    class={`cur-marquee cur-band cur-band--${theme} ${hasDivider ? "cur-band--has-divider" : ""}`}
+    aria-label="Our Sponsors"
+  >
     <div class="cur-marquee__track">
-      {[...active, ...active].map((sponsor) => (
-        <a href={sponsor.url || "/sponsors"} target={sponsor.url ? "_blank" : undefined} rel="noopener">
-          <img class="cur-marquee__logo" src={sponsor.logo} alt={sponsor.name} loading="lazy" />
-        </a>
-      ))}
+      <div class="cur-marquee__group">
+        {active.map((sponsor) => (
+          <a href={sponsor.url || "/sponsors"} target={sponsor.url ? "_blank" : undefined} rel="noopener">
+            <img class="cur-marquee__logo" src={sponsor.logo} alt={sponsor.name} loading="lazy" />
+          </a>
+        ))}
+      </div>
+      <div class="cur-marquee__group" aria-hidden="true">
+        {active.map((sponsor) => (
+          <a
+            href={sponsor.url || "/sponsors"}
+            target={sponsor.url ? "_blank" : undefined}
+            rel="noopener"
+            tabindex="-1"
+          >
+            <img class="cur-marquee__logo" src={sponsor.logo} alt="" loading="lazy" />
+          </a>
+        ))}
+      </div>
     </div>
+    {hasDivider && (
+      <Divider style={divider.style} stroke={divider.stroke} nextTheme={nextTheme} />
+    )}
   </section>
 )}
 
 <style>
   .cur-marquee {
+    position: relative;
     overflow: hidden;
-    /* padding-block: 2rem; */
-    background: var(--cur-white);
+    padding-block: 1.75rem;
+  }
+
+  .cur-marquee.cur-band--has-divider {
+    padding-bottom: calc(1.75rem + clamp(32px, 5.5vw, 68px));
   }
 
   .cur-marquee__track {
     display: flex;
     align-items: center;
-    gap: 1rem;
     width: max-content;
     animation: cur-scroll 30s linear infinite;
   }
 
-  .cur-marquee:hover .cur-marquee__track {
+  .cur-marquee__group {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .cur-marquee:hover .cur-marquee__track,
+  .cur-marquee:focus-within .cur-marquee__track {
     animation-play-state: paused;
   }
 
@@ -50,5 +85,23 @@ const active = sponsors.filter((s) => s.showInMarquee !== false && s.logo);
   @keyframes cur-scroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cur-marquee__track {
+      animation: none;
+      width: 100%;
+    }
+
+    .cur-marquee__group {
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      padding-right: 0;
+    }
+
+    .cur-marquee__group[aria-hidden="true"] {
+      display: none;
+    }
   }
 </style>

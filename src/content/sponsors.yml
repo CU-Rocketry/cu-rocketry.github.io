@@ -46,10 +46,10 @@ list:
     showInMarquee: true
   - name: GE Aerospace
     tier: Gold
-    url: GE Aerospace
+    url: https://www.geaerospace.com/
     logo: /media/sponsor-logos/ge-aerospace.png
     description: GE Aerospace is a world leading provider of jet and turboprop
-      engines, as well as integrated systems for commercial ,military, business
+      engines, as well as integrated systems for commercial, military, business
       and general aviation aircraft.
     showInMarquee: false
   - name: Sierra Circuits

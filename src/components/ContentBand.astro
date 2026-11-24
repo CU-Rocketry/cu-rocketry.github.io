@@ -44,4 +44,14 @@ const html = renderMarkdown(text);
     width: 100%;
     border-radius: var(--cur-radius);
   }
+
+  @media (max-width: 860px) {
+    .cur-split {
+      grid-template-columns: 1fr;
+    }
+
+    .cur-split--reverse .cur-split__media {
+      order: 0;
+    }
+  }
 </style>

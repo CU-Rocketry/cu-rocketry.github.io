@@ -1,43 +1,17 @@
-# Astro Starter Kit: Minimal
+# Clarkson University Rocketry Website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Static site for [Clarkson University Rocketry](https://clarksonuniversityrocketry.com) based on Astro framework and Pages CMS for easy editing.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Stack
 
-## 🚀 Project Structure
+- [Pages CMS](https://pagescms.org/) is configured by `.pages.yml` so people can edit anything in `src/content/`
+- Astro static site generator compiles the content edited by Pages CMS
+- Website stylesheets split into component style and global CSS
 
-Inside of your Astro project, you'll see the following folders and files:
+## Usage
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+First, run `npm install` in the project root directory to install all the dependencies from the package. Requires NPM.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Then, you can use a dev server to see changes with hot reloads by running `npm run dev` and opening https://localhost:4321 in your browser.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Finally, ensure everything still builds with `npm run build` and `npm run preview`. If all of this works then the GitHub Actions CI should still work technically.

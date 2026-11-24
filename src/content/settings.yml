@@ -1,14 +1,21 @@
 siteTitle: Clarkson University Rocketry
 heroTitle: Clarkson University Rocketry
 heroFallbackImage: /media/images/img1897.jpg
+heroDivider:
+  style: concave-up
+  stroke: gold
+missionTheme: white
+missionDivider:
+  style: none
+  stroke: none
 missionBody: >+
   # Our Mission
 
 
-  The Clarkson University Rocketry Team is a student lead competitive design
+  The Clarkson University Rocketry Team is a student-led competitive design
   team where students design and fabricate High Power Rockets for personal
-  missions and international rocketry competitions. Team members  apply
-  multidisciplinary engineering principals to practical rocketry applications
+  missions and international rocketry competitions. Team members apply
+  multidisciplinary engineering principles to practical rocketry applications
   using Clarkson University’s composites laboratories.
 
 socials:

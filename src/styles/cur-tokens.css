@@ -24,11 +24,6 @@
   --cur-max-width: 1140px;
   --cur-prose-width: 760px;
   --cur-radius: 8px;
-
-  /* Typography */
-  --font-heading: "Montserrat", system-ui, -apple-system, sans-serif;
-  --font-body: "Roboto", system-ui, -apple-system, sans-serif;
-  --font-display: "Nasalization", "Montserrat", sans-serif;
 }
 
 *,

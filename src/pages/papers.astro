@@ -1,9 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PdfViewer from "../components/PdfViewer.astro";
+import SectionRenderer from "../components/SectionRenderer.astro";
 import { loadYaml, renderMarkdown } from "../lib/content.js";
 
 const papers = loadYaml("papers.yml");
+const documents = papers.documents || [];
+const sections = papers.sections || [];
+const afterDocsTheme = sections[0]?.theme || "green";
 ---
 
 <BaseLayout title="Papers">
@@ -14,11 +18,15 @@ const papers = loadYaml("papers.yml");
     </div>
   </section>
 
-  {(papers.documents || []).map((doc) => (
+  {documents.map((doc, index) => (
     <PdfViewer
       title={`${doc.title}${doc.year ? ` (${doc.year})` : ""}`}
       summary={doc.summary}
       pdfUrl={doc.pdfUrl}
+      theme="white"
+      nextTheme={index < documents.length - 1 ? "white" : afterDocsTheme}
     />
   ))}
+
+  {sections.length > 0 && <SectionRenderer sections={sections} footerTheme="green" />}
 </BaseLayout>

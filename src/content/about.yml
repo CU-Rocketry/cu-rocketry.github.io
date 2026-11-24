@@ -1,5 +1,7 @@
-introTitle: About Clarkson University Rocketry
-introBody: Placeholder team overview. Edit this in Pages CMS.
+subteamsTheme: white
+subteamsDivider:
+  style: none
+  stroke: none
 subteams:
   - name: Avionics & Recovery
     description: The Avionics & Recovery subteam has overhauled our av-bay with new
@@ -13,7 +15,7 @@ subteams:
     description: The Modeling and Simulation (ModSim) subteam has been contributing
       important rocket characteristics and flight prediction statistics to aid
       in decision-making regarding the design of the rocket. With our design
-      finalized, ModSim is now porting a MATLAB Simulink Hardware-In-TheLoop
+      finalized, ModSim is now porting a MATLAB Simulink Hardware-In-The-Loop
       simulation over to Python and RocketPy to increase realism when simulating
       and tuning the rocket's active control systems. In addition, ModSim has
       started CFD simulation to better predict the drag produced by the Air
@@ -42,6 +44,10 @@ subteams:
       body tubes and plates in-house using our refined layup and winding
       processes.
     photo: /media/images/winding.png
+eboardTheme: light
+eboardDivider:
+  style: none
+  stroke: none
 people:
   - name: Mathew Barnhart
     role: President

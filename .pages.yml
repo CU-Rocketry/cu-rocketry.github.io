@@ -31,6 +31,17 @@ media:
     extensions: [pdf]
 
 components:
+  bandTheme:
+    type: select
+    label: Background Theme
+    default: white
+    options:
+      values:
+        - { value: white, label: "White (#ffffff)" }
+        - { value: light, label: "Light Grey (#d7d2cb)" }
+        - { value: grey, label: "Warm Grey (#6e6259)" }
+        - { value: green, label: "Clarkson Green (#004e42)" }
+
   divider:
     type: object
     label: Divider
@@ -41,26 +52,137 @@ components:
         default: none
         options:
           values:
-            - { name: none, label: None }
-            - { name: concave-up, label: Concave Up }
-            - { name: concave-down, label: Concave Down }
-            - { name: wavy, label: Wavy }
-            - { name: slant-right, label: Slant Right }
-            - { name: slant-left, label: Slant Left }
-            - { name: triangle, label: Triangle }
-            - { name: chevron, label: Chevron }
-            - { name: zigzag, label: Zigzag }
+            - { value: none, label: None }
+            - { value: concave-up, label: Concave Up }
+            - { value: concave-down, label: Concave Down }
+            - { value: wavy, label: Wavy }
+            - { value: slant-right, label: Slant Right }
+            - { value: slant-left, label: Slant Left }
+            - { value: triangle, label: Triangle }
+            - { value: chevron, label: Chevron }
+            - { value: zigzag, label: Zigzag }
       - name: stroke
         label: Accent Border Color
         type: select
         default: none
         options:
           values:
-            - { name: none, label: None }
-            - { name: gold, label: Gold }
-            - { name: green, label: Green }
-            - { name: white, label: White }
-            - { name: grey, label: Grey }
+            - { value: none, label: None }
+            - { value: gold, label: Gold }
+            - { value: green, label: Green }
+            - { value: white, label: White }
+            - { value: grey, label: Grey }
+
+  splitBand:
+    type: object
+    label: Split Text & Image Band
+    fields:
+      - name: theme
+        label: Background Theme
+        component: bandTheme
+        default: grey
+      - name: imageSide
+        label: Image Position
+        type: select
+        default: left
+        options:
+          values:
+            - { value: left, label: Left }
+            - { value: right, label: Right }
+      - name: image
+        label: Section Photo
+        type: image
+        options:
+          media: images
+      - { name: caption, label: Image Caption (Optional), type: string }
+      - { name: heading, label: Section Heading (Optional), type: string }
+      - { name: text, label: Paragraph Content, type: rich-text }
+      - name: divider
+        label: Bottom Divider
+        component: divider
+
+  textBand:
+    type: object
+    label: Text Band
+    fields:
+      - name: theme
+        label: Background Theme
+        component: bandTheme
+      - { name: heading, label: Section Heading (Optional), type: string }
+      - { name: text, label: Content, type: rich-text }
+      - name: divider
+        label: Bottom Divider
+        component: divider
+
+  accordion:
+    type: object
+    label: Accordion Band
+    fields:
+      - name: theme
+        label: Background Theme
+        component: bandTheme
+      - { name: heading, label: Section Heading (Optional), type: string }
+      - name: items
+        label: Accordion Items
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Item Title, type: string, required: true }
+          - { name: body, label: Description, type: rich-text }
+          - name: photo
+            label: Item Photo (Optional)
+            type: image
+            options:
+              media: images
+      - name: divider
+        label: Bottom Divider
+        component: divider
+
+  peopleGrid:
+    type: object
+    label: People Grid Band
+    fields:
+      - name: theme
+        label: Background Theme
+        component: bandTheme
+        default: light
+      - { name: heading, label: Section Heading (Optional), type: string }
+      - name: people
+        label: People
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Name, type: string, required: true }
+          - { name: role, label: Role, type: string, required: true }
+          - { name: year, label: Year, type: string, required: true }
+          - name: headshot
+            label: Headshot Photo
+            type: image
+            options:
+              media: headshots
+      - name: divider
+        label: Bottom Divider
+        component: divider
+
+  pdfEmbed:
+    type: object
+    label: PDF Viewer Band
+    fields:
+      - name: theme
+        label: Background Theme
+        component: bandTheme
+      - { name: title, label: Document Title, type: string, required: true }
+      - { name: summary, label: Short Summary (Optional), type: text }
+      - name: pdfUrl
+        label: PDF Document
+        type: file
+        required: true
+        options:
+          media: docs
+          extensions: [pdf]
+      - name: divider
+        label: Bottom Divider
+        component: divider
 
 content:
   # --- 1. Global Site & Landing Hero Settings ---
@@ -82,9 +204,18 @@ content:
         type: image
         options:
           media: images
-      - name: introBody
-        label: Landing Intro Text
+      - name: heroDivider
+        label: Hero Bottom Divider
+        component: divider
+      - name: missionTheme
+        label: Mission Background Theme
+        component: bandTheme
+      - name: missionBody
+        label: Landing Mission Text
         type: rich-text
+      - name: missionDivider
+        label: Mission Bottom Divider
+        component: divider
       - name: socials
         label: Social Media Links
         type: object
@@ -93,18 +224,15 @@ content:
           - { name: linkedin, label: LinkedIn URL, type: string }
           - { name: discord, label: Discord Invite URL, type: string }
 
-  # --- 2. About Page (Subteams Accordion + People Roster) ---
+  # --- 2. Home Subteams & Eboard (Landing Page Sections) ---
   - name: about
-    label: About
+    label: Subteams & Eboard
     type: file
     path: src/content/about.yml
     fields:
-      - name: introTitle
-        label: Page Heading
-        type: string
-      - name: introBody
-        label: About Overview
-        type: rich-text
+      - name: subteamsTheme
+        label: Subteams Background Theme
+        component: bandTheme
       - name: subteams
         label: Subteams (Accordion)
         type: object
@@ -117,6 +245,13 @@ content:
             type: image
             options:
               media: images
+      - name: subteamsDivider
+        label: Subteams Bottom Divider
+        component: divider
+      - name: eboardTheme
+        label: Eboard Background Theme
+        component: bandTheme
+        default: light
       - name: people
         label: Eboard
         type: object
@@ -130,6 +265,9 @@ content:
             type: image
             options:
               media: headshots
+      - name: eboardDivider
+        label: Eboard Bottom Divider
+        component: divider
 
   # --- 3. Sponsors (Drives BOTH the Landing Marquee & Sponsors Page) ---
   - name: sponsors
@@ -156,7 +294,11 @@ content:
             label: Sponsor Tier
             type: select
             options:
-              values: [Platinum, Gold, Green, Partner]
+              values:
+                - { value: Platinum, label: Platinum }
+                - { value: Gold, label: Gold }
+                - { value: Green, label: Green }
+                - { value: Partner, label: Partner }
           - { name: url, label: Sponsor Website, type: string }
           - name: logo
             label: Sponsor Logo
@@ -168,6 +310,22 @@ content:
             label: Show in Landing Page Scroller
             type: boolean
             default: true
+      - name: sections
+        label: Extra Page Sections (Optional)
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - name: splitBand
+            component: splitBand
+          - name: textBand
+            component: textBand
+          - name: accordion
+            component: accordion
+          - name: peopleGrid
+            component: peopleGrid
+          - name: pdfEmbed
+            component: pdfEmbed
 
   # --- 4. Papers & Technical Reports ---
   - name: papers
@@ -186,7 +344,29 @@ content:
           - { name: title, label: Report Title, type: string, required: true }
           - { name: year, label: Competition Year, type: string }
           - { name: summary, label: Short Summary, type: text }
-          - { name: pdfUrl, label: PDF Path or External URL, type: string, required: true }
+          - name: pdfUrl
+            label: PDF Document
+            type: file
+            required: true
+            options:
+              media: docs
+              extensions: [pdf]
+      - name: sections
+        label: Extra Page Sections (Optional)
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - name: splitBand
+            component: splitBand
+          - name: textBand
+            component: textBand
+          - name: accordion
+            component: accordion
+          - name: peopleGrid
+            component: peopleGrid
+          - name: pdfEmbed
+            component: pdfEmbed
 
   # --- 5. Projects (Alternating Color Band Pages like Aurora) ---
   - name: projects
@@ -207,34 +387,22 @@ content:
         type: image
         options:
           media: images
-      - name: bands
-        label: Alternating Page Sections
-        type: object
+      - name: sections
+        label: Page Sections
+        type: block
         list: true
-        fields:
-          - name: theme
-            label: Background Color
-            type: select
-            default: grey
-            options:
-              values:
-                - { value: grey, label: Warm Grey (#6e6259) }
-                - { value: green, label: Clarkson Green (#004e42) }
-                - { value: white, label: White (#ffffff) }
-          - name: imageSide
-            label: Image Position
-            type: select
-            default: left
-            options:
-              values: [left, right]
-          - name: image
-            label: Section Photo
-            type: image
-            options:
-              media: images
-          - { name: caption, label: Image Caption (Optional), type: string }
-          - { name: heading, label: Section Heading (Optional), type: string }
-          - { name: text, label: Paragraph Content, type: rich-text }
+        blockKey: type
+        blocks:
+          - name: splitBand
+            component: splitBand
+          - name: textBand
+            component: textBand
+          - name: accordion
+            component: accordion
+          - name: peopleGrid
+            component: peopleGrid
+          - name: pdfEmbed
+            component: pdfEmbed
 
   # --- 6. Blog Posts / Build Logs ---
   - name: blog

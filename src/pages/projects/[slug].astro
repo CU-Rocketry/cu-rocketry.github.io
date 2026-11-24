@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
 import SectionRenderer from "../../components/SectionRenderer.astro";
 import { loadMarkdownCollection } from "../../lib/content.js";
 
@@ -12,15 +13,25 @@ export function getStaticPaths() {
 
 const { project } = Astro.props;
 const blocks = project.data.sections || project.data.bands || [];
+const firstTheme = blocks[0]?.theme || "green";
 ---
 
 <BaseLayout title={project.data.title}>
-  <section class="cur-band cur-band--green">
-    <div class="cur-container">
-      <h1>{project.data.title}</h1>
-      {project.data.year && <p style="margin:0;">Competition Year: {project.data.year}</p>}
-    </div>
-  </section>
+  {project.data.heroImage ? (
+    <Hero
+      title={project.data.title}
+      subtitle={project.data.year ? `Competition Year: ${project.data.year}` : undefined}
+      fallbackImage={project.data.heroImage}
+      nextTheme={firstTheme}
+    />
+  ) : (
+    <section class="cur-band cur-band--green">
+      <div class="cur-container">
+        <h1>{project.data.title}</h1>
+        {project.data.year && <p style="margin:0;">Competition Year: {project.data.year}</p>}
+      </div>
+    </section>
+  )}
 
-  <SectionRenderer sections={blocks} />
+  <SectionRenderer sections={blocks} footerTheme="green" />
 </BaseLayout>

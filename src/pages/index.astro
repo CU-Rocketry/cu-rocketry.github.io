@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
+import Divider from "../components/Divider.astro";
 import SubteamAccordion from "../components/SubteamAccordion.astro";
 import Eboard from "../components/Eboard.astro";
 import SponsorMarquee from "../components/SponsorMarquee.astro";
@@ -8,24 +9,54 @@ import { loadYaml, renderMarkdown } from "../lib/content.js";
 
 const settings = loadYaml("settings.yml");
 const sponsors = loadYaml("sponsors.yml");
-const about = loadYaml("about.yml")
+const about = loadYaml("about.yml");
+
+const missionTheme = settings.missionTheme || "white";
+const subteamsTheme = about.subteamsTheme || "white";
+const eboardTheme = about.eboardTheme || "light";
+const marqueeTheme = "white";
+
+const hasMissionDivider = settings.missionDivider?.style && settings.missionDivider.style !== "none";
+const activeMarquee = (sponsors.list || []).filter((s) => s.showInMarquee !== false && s.logo);
+const afterEboardTheme = activeMarquee.length > 0 ? marqueeTheme : "green";
 ---
 
 <BaseLayout>
   <Hero
     title={settings.heroTitle || "Clarkson University Rocketry"}
     fallbackImage={settings.heroFallbackImage}
+    divider={settings.heroDivider}
+    nextTheme={missionTheme}
   />
 
-  <section class="cur-band cur-band--white">
+  <section class={`cur-band cur-band--${missionTheme} ${hasMissionDivider ? "cur-band--has-divider" : ""}`}>
     <div class="cur-container">
       <div set:html={renderMarkdown(settings.missionBody)} />
     </div>
+    {hasMissionDivider && (
+      <Divider
+        style={settings.missionDivider.style}
+        stroke={settings.missionDivider.stroke}
+        nextTheme={subteamsTheme}
+      />
+    )}
   </section>
 
-  <SubteamAccordion heading="Subteams" items={about.subteams || []} />
-  
-  <Eboard heading="Executive and Technical Board" people={about.people || []} theme="light" />
+  <SubteamAccordion
+    heading="Subteams"
+    items={about.subteams || []}
+    theme={subteamsTheme}
+    divider={about.subteamsDivider}
+    nextTheme={eboardTheme}
+  />
 
-  <SponsorMarquee sponsors={sponsors.list || []} />
+  <Eboard
+    heading="Executive and Technical Board"
+    people={about.people || []}
+    theme={eboardTheme}
+    divider={about.eboardDivider}
+    nextTheme={afterEboardTheme}
+  />
+
+  <SponsorMarquee sponsors={sponsors.list || []} theme={marqueeTheme} nextTheme="green" />
 </BaseLayout>

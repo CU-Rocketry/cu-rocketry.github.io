@@ -1,11 +1,11 @@
 ---
 import { renderMarkdown } from "../lib/content.js";
 import Divider from "./Divider.astro";
-const { heading, items = [], divider, nextTheme = "white" } = Astro.props;
+const { heading, items = [], theme = "white", divider, nextTheme = "white" } = Astro.props;
 const hasDivider = divider?.style && divider.style !== "none";
 ---
 
-<section class="cur-band cur-band--white">
+<section class={`cur-band cur-band--${theme} ${hasDivider ? "cur-band--has-divider" : ""}`}>
   <div class="cur-container">
     {heading && <h2>{heading}</h2>}
     {items.map((item) => (
@@ -32,11 +32,11 @@ const hasDivider = divider?.style && divider.style !== "none";
 
 <style>
   .cur-accordion {
-    border-top: 1px solid var(--cur-grey-1);
+    border-top: 1px solid var(--band-border, var(--cur-grey-1));
   }
 
   .cur-accordion:last-of-type {
-    border-bottom: 1px solid var(--cur-grey-1);
+    border-bottom: 1px solid var(--band-border, var(--cur-grey-1));
   }
 
   .cur-accordion summary {
@@ -57,7 +57,7 @@ const hasDivider = divider?.style && divider.style !== "none";
 
   .cur-accordion summary::after {
     content: "+";
-    color: var(--cur-green);
+    color: var(--band-accent, var(--cur-green));
     font-size: 1.4rem;
     line-height: 1;
   }

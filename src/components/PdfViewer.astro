@@ -1,8 +1,11 @@
 ---
-const { title, pdfUrl, summary } = Astro.props;
+import Divider from "./Divider.astro";
+
+const { title, pdfUrl, summary, theme = "white", divider, nextTheme = "white" } = Astro.props;
+const hasDivider = divider?.style && divider.style !== "none";
 ---
 
-<section class="cur-band cur-band--white">
+<section class={`cur-band cur-band--${theme} ${hasDivider ? "cur-band--has-divider" : ""}`}>
   <div class="cur-container">
     {summary && <p>{summary}</p>}
     <div class="cur-pdf">
@@ -15,11 +18,14 @@ const { title, pdfUrl, summary } = Astro.props;
       <iframe class="cur-pdf__frame" src={pdfUrl} title={title} loading="lazy"></iframe>
     </div>
   </div>
+  {hasDivider && (
+    <Divider style={divider.style} stroke={divider.stroke} nextTheme={nextTheme} />
+  )}
 </section>
 
 <style>
   .cur-pdf {
-    border: 1px solid var(--cur-grey-1);
+    border: 1px solid var(--band-border, var(--cur-grey-1));
     border-radius: var(--cur-radius);
     overflow: hidden;
     background: var(--cur-white);

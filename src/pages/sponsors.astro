@@ -1,11 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PdfViewer from "../components/PdfViewer.astro";
+import SectionRenderer from "../components/SectionRenderer.astro";
 import { loadYaml, renderMarkdown } from "../lib/content.js";
 
 const sponsors = loadYaml("sponsors.yml");
 const tiers = ["Platinum", "Gold", "Green", "Partner"];
 const list = sponsors.list || [];
+const sections = sponsors.sections || [];
+const afterBrochureTheme = sections[0]?.theme || "green";
 ---
 
 <BaseLayout title="Sponsors">
@@ -42,8 +45,15 @@ const list = sponsors.list || [];
   })}
 
   {sponsors.brochurePdfUrl && (
-    <PdfViewer title="Sponsorship Brochure" pdfUrl={sponsors.brochurePdfUrl} />
+    <PdfViewer
+      title="Sponsorship Brochure"
+      pdfUrl={sponsors.brochurePdfUrl}
+      theme="white"
+      nextTheme={afterBrochureTheme}
+    />
   )}
+
+  {sections.length > 0 && <SectionRenderer sections={sections} footerTheme="green" />}
 </BaseLayout>
 
 <style>

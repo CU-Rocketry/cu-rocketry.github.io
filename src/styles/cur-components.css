@@ -11,26 +11,33 @@
 .cur-band--white {
   background-color: var(--cur-white);
   color: var(--cur-black);
+  --band-accent: var(--cur-green);
+  --band-border: var(--cur-grey-1);
+  --band-muted: var(--cur-grey-30);
 }
 
 .cur-band--green {
   background-color: var(--cur-green);
   color: var(--cur-white);
+  --band-accent: var(--cur-gold);
+  --band-border: rgba(255, 255, 255, 0.25);
+  --band-muted: var(--cur-grey-1);
 }
 
 .cur-band--grey {
   background-color: var(--cur-grey-30);
   color: var(--cur-white);
+  --band-accent: var(--cur-gold);
+  --band-border: rgba(255, 255, 255, 0.25);
+  --band-muted: var(--cur-grey-1);
 }
 
 .cur-band--light {
   background-color: var(--cur-grey-1);
   color: var(--cur-black);
-}
-
-.cur-band--green .cur-person__role,
-.cur-band--grey .cur-person__role {
-  color: var(--cur-grey-1);
+  --band-accent: var(--cur-green);
+  --band-border: var(--cur-grey-6);
+  --band-muted: var(--cur-grey-30);
 }
 
 /* --- 8. Figures & Captions --- */
@@ -41,22 +48,7 @@ figure {
 figcaption {
   margin-top: 0.5rem;
   font-size: 0.88rem;
-  color: var(--cur-grey-30);
-}
-
-/* --- Responsive Breakpoint --- */
-@media (max-width: 860px) {
-  .cur-split {
-    grid-template-columns: 1fr;
-  }
-
-  .cur-split--reverse .cur-split__media {
-    order: 0;
-  }
-
-  .cur-header__inner {
-    grid-template-columns: auto 1fr auto;
-  }
+  color: var(--band-muted, var(--cur-grey-30));
 }
 
 /* --- 9. Links Inside Dark Content Bands (for Pages CMS rich-text) --- */

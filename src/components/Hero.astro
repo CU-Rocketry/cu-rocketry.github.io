@@ -1,7 +1,16 @@
 ---
 import Divider from "./Divider.astro";
 
-const { title, fallbackImage } = Astro.props;
+const {
+    title,
+    subtitle,
+    fallbackImage,
+    divider = { style: "concave-up", stroke: "gold" },
+    nextTheme = "white",
+} = Astro.props;
+const dividerStyle = divider?.style ?? "concave-up";
+const dividerStroke = divider?.stroke ?? "gold";
+const hasDivider = dividerStyle && dividerStyle !== "none";
 ---
 
 <section class="cur-hero">
@@ -13,9 +22,12 @@ const { title, fallbackImage } = Astro.props;
 
     <div class="cur-hero__content">
         <h1 class="cur-hero__title">{title}</h1>
+        {subtitle && <p class="cur-hero__subtitle">{subtitle}</p>}
     </div>
 
-    <Divider style="concave-up" nextTheme="{settings.missionTheme}" stroke="gold" ||/>
+    {hasDivider && (
+        <Divider style={dividerStyle} stroke={dividerStroke} nextTheme={nextTheme} />
+    )}
 </section>
 
 <style>
@@ -57,26 +69,10 @@ const { title, fallbackImage } = Astro.props;
         text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
     }
 
-    .cur-hero__pause {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        border: none;
-        background: rgba(22, 26, 25, 0.65);
-        color: var(--cur-white);
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .cur-hero__curve {
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        width: 100%;
-        height: clamp(32px, 6vw, 72px);
-        z-index: 3;
-        pointer-events: none;
+    .cur-hero__subtitle {
+        font-size: 1.1rem;
+        color: var(--cur-grey-1);
+        margin: -0.75rem 0 0;
+        text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
     }
 </style>
