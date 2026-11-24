@@ -59,7 +59,6 @@ content:
         fields:
           - { name: instagram, label: Instagram URL, type: string }
           - { name: linkedin, label: LinkedIn URL, type: string }
-          - { name: linktree, label: Linktree / Other URL, type: string }
           - { name: discord, label: Discord Invite URL, type: string }
 
   # --- 2. About Page (Subteams Accordion + People Roster) ---

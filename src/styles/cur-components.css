@@ -87,6 +87,12 @@
   color: var(--cur-green);
 }
 
+.cur-socials__btn svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
 /* Dropdown Support for Projects / Blog */
 .cur-nav__item--has-sub {
   position: relative;
