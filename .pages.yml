@@ -109,8 +109,11 @@ content:
         label: Sponsors Page Intro
         type: rich-text
       - name: brochurePdfUrl
-        label: Sponsorship Brochure PDF (Upload or R2 URL)
-        type: string
+        label: Sponsorship Brochure PDF
+        type: file
+        options:
+          media: docs
+          extensions: [pdf]
       - name: list
         label: Sponsor List
         type: object
