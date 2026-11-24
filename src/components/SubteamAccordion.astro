@@ -1,6 +1,6 @@
 ---
 import { renderMarkdown } from "../lib/content.js";
-import { Divider } from "./Divider.astro";
+import Divider from "./Divider.astro";
 const { heading, items = [], divider, nextTheme = "white" } = Astro.props;
 const hasDivider = divider?.style && divider.style !== "none";
 ---
