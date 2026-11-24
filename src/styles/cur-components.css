@@ -308,14 +308,14 @@
 /* --- 6. Sponsor Logo Scroller (Marquee) --- */
 .cur-marquee {
   overflow: hidden;
-  padding-block: 2rem;
+  /* padding-block: 2rem; */
   background: var(--cur-white);
 }
 
 .cur-marquee__track {
   display: flex;
   align-items: center;
-  gap: 3.5rem;
+  /* gap: 3.5rem; */
   width: max-content;
   animation: cur-scroll 30s linear infinite;
 }
