@@ -357,7 +357,7 @@
 .cur-marquee__track {
   display: flex;
   align-items: center;
-  /* gap: 3.5rem; */
+  gap: 1rem;
   width: max-content;
   animation: cur-scroll 30s linear infinite;
 }
@@ -367,10 +367,10 @@
 }
 
 .cur-marquee__logo {
-  height: 52px;
+  height: 100px;
   width: auto;
   filter: grayscale(100%);
-  opacity: 0.72;
+  opacity: 0.75;
   transition: filter 0.25s ease, opacity 0.25s ease;
 }
 
