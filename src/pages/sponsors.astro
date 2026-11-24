@@ -45,3 +45,24 @@ const list = sponsors.list || [];
     <PdfViewer title="Sponsorship Brochure" pdfUrl={sponsors.brochurePdfUrl} />
   )}
 </BaseLayout>
+
+<style>
+  /* still Sponsors grid, max 3 cols, separate from people grid */
+  .cur-sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
+  }
+
+  @media (max-width: 860px) {
+    .cur-sponsors-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 560px) {
+    .cur-sponsors-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

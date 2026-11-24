@@ -14,3 +14,41 @@ const active = sponsors.filter((s) => s.showInMarquee !== false && s.logo);
     </div>
   </section>
 )}
+
+<style>
+  .cur-marquee {
+    overflow: hidden;
+    /* padding-block: 2rem; */
+    background: var(--cur-white);
+  }
+
+  .cur-marquee__track {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: max-content;
+    animation: cur-scroll 30s linear infinite;
+  }
+
+  .cur-marquee:hover .cur-marquee__track {
+    animation-play-state: paused;
+  }
+
+  .cur-marquee__logo {
+    height: 100px;
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.75;
+    transition: filter 0.25s ease, opacity 0.25s ease;
+  }
+
+  .cur-marquee__logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  @keyframes cur-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+</style>

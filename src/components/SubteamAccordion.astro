@@ -24,3 +24,68 @@ const { heading, items = [] } = Astro.props;
     ))}
   </div>
 </section>
+
+<style>
+  .cur-accordion {
+    border-top: 1px solid var(--cur-grey-1);
+  }
+
+  .cur-accordion:last-of-type {
+    border-bottom: 1px solid var(--cur-grey-1);
+  }
+
+  .cur-accordion summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 1.1rem 0.25rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cur-accordion summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .cur-accordion summary::after {
+    content: "+";
+    color: var(--cur-green);
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+
+  .cur-accordion[open] summary::after {
+    content: "−";
+  }
+
+  .cur-accordion__body {
+    padding: 0 0.25rem 1.25rem;
+  }
+
+  .cur-accordion__body--split {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.25rem, 3vw, 2.5rem);
+    align-items: center;
+  }
+
+  .cur-accordion__photo {
+    width: 100%;
+    max-height: 340px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .cur-accordion__text > :global(:first-child) {
+    margin-top: 0;
+  }
+
+  @media (max-width: 760px) {
+    .cur-accordion__body--split {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
