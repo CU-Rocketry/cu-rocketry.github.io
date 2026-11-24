@@ -336,15 +336,6 @@
   to { transform: translateX(-50%); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .cur-marquee__track {
-    animation: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: auto;
-  }
-}
-
 /* --- 7. Responsive PDF Embed --- */
 .cur-pdf {
   border: 1px solid var(--cur-grey-1);
