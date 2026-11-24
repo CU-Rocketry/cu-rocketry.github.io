@@ -13,7 +13,7 @@ const { heading = "Eboard", people = [], theme = "white" } = Astro.props;
           )}
           <h3 class="cur-person__name">{person.name}</h3>
           <p class="cur-person__role">
-            {person.role}{person.classYear ? ` · ${person.classYear}` : ""}
+            {person.role}{person.classYear ? ` '${person.classYear}` : ""}
           </p>
         </article>
       ))}
