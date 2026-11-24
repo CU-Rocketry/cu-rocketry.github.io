@@ -18,11 +18,12 @@
   --cur-sec-blue-dark: #002d72;
 
   /* Surfaces & UI */
-  --cur-nav-bg: rgba(0, 46, 39, 0.84);
+  /* --cur-nav-bg: #rgba(0, 46, 39, 0.84); */
+  --cur-nav-bg: #004e42;
   --cur-nav-height: 76px;
   --cur-max-width: 1140px;
   --cur-prose-width: 760px;
-  --cur-radius: 4px;
+  --cur-radius: 8px;
 
   /* Typography */
   --font-heading: "Montserrat", system-ui, -apple-system, sans-serif;
