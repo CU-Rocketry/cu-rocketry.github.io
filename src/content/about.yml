@@ -1,8 +1,47 @@
 introTitle: About Clarkson University Rocketry
 introBody: Placeholder team overview. Edit this in Pages CMS.
 subteams:
-  - name: Air Brakes & Active Controls
-    description: Placeholder subteam description.
+  - name: Avionics & Recovery
+    description: The Avionics & Recovery subteam has overhauled our av-bay with new
+      flight computers, GPS tracking systems, live video transmitters, and
+      deployment devices to increase the reliability of our recovery system.
+      This year's av-bay contains a primary and backup COTS flight computer,
+      COTS and SRAD GPS trackers, and a live + recorded video camera system, all
+      mounted on modular card trays.
+    photo: /media/images/avbay.png
+  - name: Modeling & Simulation
+    description: The Modeling and Simulation (ModSim) subteam has been contributing
+      important rocket characteristics and flight prediction statistics to aid
+      in decision-making regarding the design of the rocket. With our design
+      finalized, ModSim is now porting a MATLAB Simulink Hardware-In-TheLoop
+      simulation over to Python and RocketPy to increase realism when simulating
+      and tuning the rocket's active control systems. In addition, ModSim has
+      started CFD simulation to better predict the drag produced by the Air
+      Brakes control flaps.
+    photo: /media/images/cfd.png
+  - name: Payload
+    description: The Payload subteam develops a scientific payload judged separately
+      from the rocket and entered into the Utah State SDL challenge. This year's
+      payload investigates rocket electronics cooling using a thermal camera and
+      heater/heatsink system designed to emulate heat-sensitive hardware. Data
+      collected from this year's payload will be valuable in decision-making for
+      future electronics bay development.
+    photo: /media/images/payload.png
+  - name: Research & Development
+    description: The R&D subteam is continuing the development of CUR's Air Brakes
+      active altitude control system by unifying its prior dedicated control
+      electronics with our SRAD flight computer PCB. This combined flight
+      computer is the team's most complex, capable, and flexible design yet,
+      allowing for the future development of advanced control systems.
+    photo: /media/images/img1671.jpg
+  - name: Structures
+    description: The Structures subteam has developed a new revision of our 5"
+      diameter by 10' tall fiberglass and carbon fiber rocket, continuing to use
+      the Aerotech M2500T reloadable motor to achieve our 10,000' apogee goal.
+      This year, the subteam is manufacturing all carbon fiber and fiberglass
+      body tubes and plates in-house using our refined layup and winding
+      processes.
+    photo: /media/images/winding.png
 people:
   - name: Mathew Barnhart
     role: President
@@ -20,7 +59,6 @@ people:
     role: Treasurer
     year: "2027"
     headshot: /media/images/headshots/liz.webp
-
   - name: Evan Fox
     role: Payload Lead
     year: "2027"
@@ -37,7 +75,6 @@ people:
     role: Structures Lead
     year: "2028"
     headshot: /media/images/headshots/jacob.webp
-
   - name: Katalina Villalba
     role: Media Manager
     year: "2028"
