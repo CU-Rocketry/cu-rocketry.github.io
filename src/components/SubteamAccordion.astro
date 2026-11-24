@@ -7,17 +7,20 @@ const { heading, items = [] } = Astro.props;
   <div class="cur-container">
     {heading && <h2>{heading}</h2>}
     {items.map((item) => (
-      <div class={`cur-accordion__body ${item.photo ? "cur-accordion__body--split" : ""}`}>
-        {item.photo && (
-          <img
-            class="cur-accordion__photo"
-            src={item.photo}
-            alt={item.name || item.title}
-            loading="lazy"
-          />
-        )}
+      <details class="cur-accordion">
+        <summary>{item.name || item.title}</summary>
+        <div class={`cur-accordion__body ${item.photo ? "cur-accordion__body--split" : ""}`}>
+          {item.photo && (
+            <img
+              class="cur-accordion__photo"
+              src={item.photo}
+              alt={item.name || item.title}
+              loading="lazy"
+            />
+          )}
         <div class="cur-accordion__text" set:html={renderMarkdown(item.description || item.body)} />
       </div>
+      </details>
     ))}
   </div>
 </section>
