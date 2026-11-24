@@ -11,9 +11,9 @@ const { heading = "Eboard", people = [], theme = "white" } = Astro.props;
           {person.headshot && (
             <img class="cur-person__photo" src={person.headshot} alt={person.name} loading="lazy" />
           )}
-          <h3 class="cur-person__name">{person.name}</h3>
+          <h3 class="cur-person__name">{person.name} '{person.year}</h3>
           <p class="cur-person__role">
-            {person.role}{person.classYear ? ` '${person.classYear}` : ""}
+            {person.role}
           </p>
         </article>
       ))}

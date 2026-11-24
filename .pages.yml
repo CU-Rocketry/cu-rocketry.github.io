@@ -92,7 +92,7 @@ content:
         fields:
           - { name: name, label: Name, type: string, required: true }
           - { name: role, label: Role, type: string, required: true }
-          - { name: classYear, label: Year, type: string }
+          - { name: year, label: Year, type: string, required: true }
           - name: headshot
             label: Headshot Photo
             type: image
