@@ -53,8 +53,9 @@ sections:
       style: triangle
       stroke: gold
   - type: splitBand
-    theme: grey
+    theme: light
     imageSide: left
+    image: /media/images/fc-sierra-2026.webp
     caption: CUR's first SRAD flight computer system
     text: >-
       Concurrently, the avionics and recovery subteam team began development of
