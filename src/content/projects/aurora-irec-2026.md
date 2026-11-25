@@ -5,7 +5,7 @@ featured: true
 heroImage: /media/images/midland-horseshoe-extended-blur.jpg
 sections:
   - type: textBand
-    theme: light
+    theme: warm-light
     text: >+
       ## June 2026 - Clarkson University Rocketry (CUR) returned to IREC for the
       third time in 2026, with our flight vehicle Aurora again competing in the
@@ -15,7 +15,7 @@ sections:
       style: concave-up
       stroke: gold
   - type: splitBand
-    theme: grey
+    theme: warm-dark
     imageSide: left
     image: /media/images/tube-2026.webp
     caption: Structures Lead Mathew Barnhart observing a tube wind
@@ -53,7 +53,7 @@ sections:
       style: triangle
       stroke: gold
   - type: splitBand
-    theme: light
+    theme: warm-light
     imageSide: left
     image: /media/images/fc-sierra-2026.webp
     caption: CUR's first SRAD flight computer system
@@ -73,7 +73,7 @@ sections:
       style: wavy
       stroke: green
   - type: splitBand
-    theme: grey
+    theme: warm-dark
     imageSide: right
     image: /media/images/payload.webp
     caption: Payload experiment modules with experimental radiation shielding

@@ -24,7 +24,7 @@
   --band-muted: var(--cur-grey-1);
 }
 
-.cur-band--grey {
+.cur-band--warm-dark {
   background-color: var(--cur-grey-30);
   color: var(--cur-white);
   --band-accent: var(--cur-gold);
@@ -32,7 +32,7 @@
   --band-muted: var(--cur-grey-1);
 }
 
-.cur-band--light {
+.cur-band--warm-light {
   background-color: var(--cur-grey-1);
   color: var(--cur-black);
   --band-accent: var(--cur-green);
@@ -53,13 +53,13 @@ figcaption {
 
 /* --- 9. Links Inside Dark Content Bands (for Pages CMS rich-text) --- */
 .cur-band--green a,
-.cur-band--grey a {
+.cur-band--warm-dark a {
   color: var(--cur-gold);
   text-underline-offset: 0.18em;
 }
 
 .cur-band--white a,
-.cur-band--light a {
+.cur-band--warm-light a {
   color: var(--cur-green);
   text-underline-offset: 0.18em;
 }

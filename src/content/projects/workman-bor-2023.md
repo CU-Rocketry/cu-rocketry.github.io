@@ -5,7 +5,7 @@ featured: true
 heroImage: /media/images/img3696.webp
 sections:
   - type: splitBand
-    theme: grey
+    theme: warm-light
     imageSide: left
     image: /media/images/p1050082.webp
     caption: Workman-1 on the launch tower

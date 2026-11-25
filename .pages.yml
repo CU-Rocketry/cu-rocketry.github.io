@@ -33,21 +33,21 @@ media:
 components:
   bandTheme:
     type: select
-    label: Background Theme
+    label: Theme
     default: white
     options:
       values:
-        - { value: white, label: "White (#ffffff)" }
-        - { value: light, label: "Light Grey (#d7d2cb)" }
-        - { value: grey, label: "Warm Grey (#6e6259)" }
-        - { value: green, label: "Clarkson Green (#004e42)" }
+        - { value: white, label: "White" }
+        - { value: warm-light, label: "Warm Light" }
+        - { value: warm-dark, label: "Warm Dark" }
+        - { value: green, label: "Green" }
 
   divider:
     type: object
     label: Divider
     fields:
       - name: style
-        label: Shape
+        label: Divider Shape
         type: select
         default: none
         options:
@@ -62,7 +62,7 @@ components:
             - { value: chevron, label: Chevron }
             - { value: zigzag, label: Zigzag }
       - name: stroke
-        label: Accent Border Color
+        label: Divider Stroke Color
         type: select
         default: none
         options:
@@ -71,7 +71,7 @@ components:
             - { value: gold, label: Gold }
             - { value: green, label: Green }
             - { value: white, label: White }
-            - { value: grey, label: Grey }
+            - { value: warm-dark, label: Warm Dark }
 
   splitBand:
     type: object

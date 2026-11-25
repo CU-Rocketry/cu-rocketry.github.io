@@ -5,7 +5,7 @@ featured: true
 heroImage: /media/images/24-25-irec-team-photo.webp
 sections:
   - type: splitBand
-    theme: grey
+    theme: warm-dark
     imageSide: left
     image: /media/images/dsc0355.webp
     caption: Avionics Lead Anthony Halliday arming screw switches before launch

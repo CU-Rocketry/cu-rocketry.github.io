@@ -1,4 +1,4 @@
-subteamsTheme: grey
+subteamsTheme: warm-dark
 subteams:
   - name: Avionics & Recovery
     description: The Avionics & Recovery subteam has overhauled our av-bay with new
@@ -44,7 +44,7 @@ subteams:
 subteamsDivider:
   style: slant-right
   stroke: green
-eboardTheme: light
+eboardTheme: warm-light
 people:
   - name: Mathew Barnhart
     role: President

@@ -2,11 +2,11 @@
 const { style = "none", stroke = "none", nextTheme = "white" } = Astro.props;
 
 const colorMap = {
-  white: "var(--cur-white)",
-  light: "var(--cur-grey-1)",
-  grey: "var(--cur-grey-30)",
-  green: "var(--cur-green)",
-  gold: "var(--cur-gold)",
+  "white": "var(--cur-white)",
+  "warm-light": "var(--cur-grey-1)",
+  "warm-dark": "var(--cur-grey-30)",
+  "green": "var(--cur-green)",
+  "gold": "var(--cur-gold)",
 };
 
 const fill = colorMap[nextTheme] || "var(--cur-white)";
