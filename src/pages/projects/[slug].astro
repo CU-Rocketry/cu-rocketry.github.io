@@ -20,7 +20,6 @@ const firstTheme = blocks[0]?.theme || "green";
   {project.data.heroImage ? (
     <Hero
       title={project.data.title}
-      subtitle={project.data.year ? `Competition Year: ${project.data.year}` : undefined}
       fallbackImage={project.data.heroImage}
       nextTheme={firstTheme}
     />
