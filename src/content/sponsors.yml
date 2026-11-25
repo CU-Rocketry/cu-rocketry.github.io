@@ -13,6 +13,36 @@ list:
       that are used for internal R&D to support our clients with their product
       and process development.
     showInMarquee: true
+  - name: THK
+    tier: Gold
+    url: https://www.thk.com/
+    logo: /media/sponsor-logos/thk.png
+    description: "THK's creative ideas and unique technology made the company
+      worldwide pioneers in the development of the Linear Motion (LM) Guide
+      mechanism. Today, our LM Guide devices are an indispensable component of
+      mechanical and electronic systems in a wide variety of industries. "
+    showInMarquee: true
+  - name: Sierra Circuits
+    tier: Gold
+    url: https://www.protoexpress.com/
+    logo: /media/sponsor-logos/sierra.png
+    description: At Sierra, we deliver high-quality boards that power AI-driven
+      robotics and help you reduce time to market by 30% with our in-house
+      fabrication, assembly, and quick-turn prototyping capabilities.
+    showInMarquee: true
+  - name: NextPCB
+    tier: Gold
+    url: https://www.nextpcb.com/
+    logo: /media/sponsor-logos/nextpcb.png
+    description: NextPCB, a subsidiary of Huaqiu (HQ) is the world's leading
+      industrial digital manufacturing platform for PCB manufacture, PCB
+      assembly, components distribution, and electronics design verification
+      tools since founding in 2011. Our passion for reliable, fast and
+      cost-effective electronics manufacturing services has transformed the
+      industry, streamlining the entire production process and allowing
+      production efficiency and cost-savings to reach record highs without
+      compromising on reliability.
+    showInMarquee: true
   - name: Siemens Energy
     tier: Gold
     url: https://www.siemens-energy.com/
@@ -35,15 +65,6 @@ list:
       Kennametal creates the advanced tooling and material solutions that help
       make it all possible.
     showInMarquee: true
-  - name: THK
-    tier: Gold
-    url: https://www.thk.com/
-    logo: /media/sponsor-logos/thk.png
-    description: "THK's creative ideas and unique technology made the company
-      worldwide pioneers in the development of the Linear Motion (LM) Guide
-      mechanism. Today, our LM Guide devices are an indispensable component of
-      mechanical and electronic systems in a wide variety of industries. "
-    showInMarquee: true
   - name: GE Aerospace
     tier: Gold
     url: https://www.geaerospace.com/
@@ -52,27 +73,6 @@ list:
       engines, as well as integrated systems for commercial, military, business
       and general aviation aircraft.
     showInMarquee: false
-  - name: Sierra Circuits
-    tier: Gold
-    url: https://www.protoexpress.com/
-    logo: /media/sponsor-logos/sierra.png
-    description: At Sierra, we deliver high-quality boards that power AI-driven
-      robotics and help you reduce time to market by 30% with our in-house
-      fabrication, assembly, and quick-turn prototyping capabilities.
-    showInMarquee: true
-  - name: NextPCB
-    tier: Gold
-    url: https://www.nextpcb.com/
-    logo: /media/sponsor-logos/nextpcb.png
-    description: NextPCB, a subsidiary of Huaqiu (HQ) is the world's leading
-      industrial digital manufacturing platform for PCB manufacture, PCB
-      assembly, components distribution, and electronics design verification
-      tools since founding in 2011. Our passion for reliable, fast and
-      cost-effective electronics manufacturing services has transformed the
-      industry, streamlining the entire production process and allowing
-      production efficiency and cost-savings to reach record highs without
-      compromising on reliability.
-    showInMarquee: true
   - name: Sipeed
     tier: Green
     url: https://sipeed.com/
