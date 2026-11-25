@@ -169,8 +169,7 @@ components:
       - name: theme
         label: Theme
         component: bandTheme
-      - { name: title, label: Heading, type: string, required: true }
-      - { name: summary, label: Summary, type: text }
+      - { name: text, label: Text, type: rich-text }
       - name: pdfUrl
         label: PDF Document
         type: file

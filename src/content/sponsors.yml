@@ -130,9 +130,10 @@ sections:
       stroke: none
   - type: pdfEmbed
     theme: green
-    title: 2026-2027 CUR Sponsorship Brochure
-    summary: Please view our attached sponsorship brochure and reach out with any
-      inquiries!
+    text: >-
+      ## 2026-2027 CUR Sponsorship Brochure
+      
+      Please view our attached sponsorship brochure and reach out with any inquiries!
     pdfUrl: /media/docs/2026-2027-cur-sponsorship-brochure.pdf
     divider:
       style: chevron

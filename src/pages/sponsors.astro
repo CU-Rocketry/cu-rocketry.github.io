@@ -44,15 +44,6 @@ const afterBrochureTheme = sections[0]?.theme || "green";
     );
   })}
 
-  {sponsors.brochurePdfUrl && (
-    <PdfViewer
-      title="Sponsorship Brochure"
-      pdfUrl={sponsors.brochurePdfUrl}
-      theme="white"
-      nextTheme={afterBrochureTheme}
-    />
-  )}
-
   {sections.length > 0 && <SectionRenderer sections={sections} footerTheme="green" />}
 </BaseLayout>
 
