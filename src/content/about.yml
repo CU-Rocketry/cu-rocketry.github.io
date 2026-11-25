@@ -1,7 +1,4 @@
-subteamsTheme: white
-subteamsDivider:
-  style: none
-  stroke: none
+subteamsTheme: grey
 subteams:
   - name: Avionics & Recovery
     description: The Avionics & Recovery subteam has overhauled our av-bay with new
@@ -44,10 +41,10 @@ subteams:
       body tubes and plates in-house using our refined layup and winding
       processes.
     photo: /media/images/winding.png
+subteamsDivider:
+  style: slant-right
+  stroke: green
 eboardTheme: light
-eboardDivider:
-  style: none
-  stroke: none
 people:
   - name: Mathew Barnhart
     role: President
@@ -97,3 +94,6 @@ people:
     role: Safety Chair
     year: "2030"
     headshot: /media/images/headshots/carlos.webp
+eboardDivider:
+  style: zigzag
+  stroke: gold
