@@ -75,12 +75,12 @@ components:
 
   splitBand:
     type: object
-    label: Split Text & Image Band
+    label: Text and Image
     fields:
       - name: theme
-        label: Background Theme
+        label: Theme
         component: bandTheme
-        default: grey
+        default: white
       - name: imageSide
         label: Image Position
         type: select
@@ -90,47 +90,45 @@ components:
             - { value: left, label: Left }
             - { value: right, label: Right }
       - name: image
-        label: Section Photo
+        label: Image
         type: image
         options:
           media: images
-      - { name: caption, label: Image Caption (Optional), type: string }
-      - { name: heading, label: Section Heading (Optional), type: string }
-      - { name: text, label: Paragraph Content, type: rich-text }
+      - { name: caption, label: Image Caption, type: string }
+      - { name: text, label: Text, type: rich-text }
       - name: divider
-        label: Bottom Divider
+        label: Divider
         component: divider
 
   textBand:
     type: object
-    label: Text Band
+    label: Text
     fields:
       - name: theme
-        label: Background Theme
+        label: Theme
         component: bandTheme
-      - { name: heading, label: Section Heading (Optional), type: string }
       - { name: text, label: Content, type: rich-text }
       - name: divider
-        label: Bottom Divider
+        label: Divider
         component: divider
 
   accordion:
     type: object
-    label: Accordion Band
+    label: Accordion
     fields:
       - name: theme
-        label: Background Theme
+        label: Theme
         component: bandTheme
-      - { name: heading, label: Section Heading (Optional), type: string }
+      - { name: heading, label: Heading, type: string }
       - name: items
         label: Accordion Items
         type: object
         list: true
         fields:
-          - { name: title, label: Item Title, type: string, required: true }
-          - { name: body, label: Description, type: rich-text }
+          - { name: title, label: Summary, type: string, required: true }
+          - { name: body, label: Details, type: rich-text }
           - name: photo
-            label: Item Photo (Optional)
+            label: Image
             type: image
             options:
               media: images
@@ -140,13 +138,13 @@ components:
 
   peopleGrid:
     type: object
-    label: People Grid Band
+    label: People Grid
     fields:
       - name: theme
-        label: Background Theme
+        label: Theme
         component: bandTheme
-        default: light
-      - { name: heading, label: Section Heading (Optional), type: string }
+        default: white
+      - { name: heading, label: Heading, type: string }
       - name: people
         label: People
         type: object
@@ -156,12 +154,12 @@ components:
           - { name: role, label: Role, type: string, required: true }
           - { name: year, label: Year, type: string, required: true }
           - name: headshot
-            label: Headshot Photo
+            label: Headshot
             type: image
             options:
               media: headshots
       - name: divider
-        label: Bottom Divider
+        label: Divider
         component: divider
 
   pdfEmbed:
@@ -169,10 +167,10 @@ components:
     label: PDF Viewer Band
     fields:
       - name: theme
-        label: Background Theme
+        label: Theme
         component: bandTheme
-      - { name: title, label: Document Title, type: string, required: true }
-      - { name: summary, label: Short Summary (Optional), type: text }
+      - { name: title, label: Heading, type: string, required: true }
+      - { name: summary, label: Summary, type: text }
       - name: pdfUrl
         label: PDF Document
         type: file
@@ -181,13 +179,13 @@ components:
           media: docs
           extensions: [pdf]
       - name: divider
-        label: Bottom Divider
+        label: Divider
         component: divider
 
 content:
   # --- 1. Global Site & Landing Hero Settings ---
   - name: settings
-    label: Site & Hero Settings
+    label: Introduction
     type: file
     path: src/content/settings.yml
     fields:
@@ -226,32 +224,32 @@ content:
 
   # --- 2. Home Subteams & Eboard (Landing Page Sections) ---
   - name: about
-    label: Subteams & Eboard
+    label: About
     type: file
     path: src/content/about.yml
     fields:
       - name: subteamsTheme
-        label: Subteams Background Theme
+        label: Theme
         component: bandTheme
       - name: subteams
-        label: Subteams (Accordion)
+        label: Subteams
         type: object
         list: true
         fields:
           - { name: name, label: Subteam Name, type: string, required: true }
           - { name: description, label: Description, type: rich-text }
           - name: photo
-            label: Subteam Photo (Optional)
+            label: Image
             type: image
             options:
               media: images
       - name: subteamsDivider
-        label: Subteams Bottom Divider
+        label: Divider
         component: divider
       - name: eboardTheme
-        label: Eboard Background Theme
+        label: Theme
         component: bandTheme
-        default: light
+        default: white
       - name: people
         label: Eboard
         type: object
@@ -266,7 +264,7 @@ content:
             options:
               media: headshots
       - name: eboardDivider
-        label: Eboard Bottom Divider
+        label: Divider
         component: divider
 
   # --- 3. Sponsors (Drives BOTH the Landing Marquee & Sponsors Page) ---
@@ -291,7 +289,7 @@ content:
         fields:
           - { name: name, label: Sponsor Name, type: string, required: true }
           - name: tier
-            label: Sponsor Tier
+            label: Sponsorship Tier
             type: select
             options:
               values:
@@ -311,7 +309,7 @@ content:
             type: boolean
             default: true
       - name: sections
-        label: Extra Page Sections (Optional)
+        label: Extra Page Sections
         type: block
         list: true
         blockKey: type
@@ -379,8 +377,8 @@ content:
       sort: [year, title]
       default: { sort: year, order: desc }
     fields:
-      - { name: title, label: Rocket / Project Name, type: string, required: true }
-      - { name: year, label: Year (e.g. 2026), type: string, required: true }
+      - { name: title, label: Project Name, type: string, required: true }
+      - { name: year, label: Year, type: string, required: true }
       - { name: featured, label: Show in Projects Dropdown, type: boolean, default: true }
       - name: heroImage
         label: Header Image
@@ -405,24 +403,24 @@ content:
             component: pdfEmbed
 
   # --- 6. Blog Posts / Build Logs ---
-  - name: blog
-    label: Blog Posts
-    type: collection
-    path: src/content/blog
-    filename: "{year}-{month}-{day}-{primary}.md"
-    view:
-      fields: [title, date, draft]
-      sort: [date, title]
-      default: { sort: date, order: desc }
-    fields:
-      - { name: title, label: Post Title, type: string, required: true }
-      - { name: date, label: Publish Date, type: date, required: true }
-      - { name: author, label: Author, type: string }
-      - { name: draft, label: Draft, type: boolean, default: false }
-      - name: coverImage
-        label: Cover Image
-        type: image
-        options:
-          media: images
-      - { name: excerpt, label: Short Summary, type: text }
-      - { name: body, label: Article Body, type: rich-text }
+  # - name: blog
+  #   label: Blog Posts
+  #   type: collection
+  #   path: src/content/blog
+  #   filename: "{year}-{month}-{day}-{primary}.md"
+  #   view:
+  #     fields: [title, date, draft]
+  #     sort: [date, title]
+  #     default: { sort: date, order: desc }
+  #   fields:
+  #     - { name: title, label: Post Title, type: string, required: true }
+  #     - { name: date, label: Publish Date, type: date, required: true }
+  #     - { name: author, label: Author, type: string }
+  #     - { name: draft, label: Draft, type: boolean, default: false }
+  #     - name: coverImage
+  #       label: Cover Image
+  #       type: image
+  #       options:
+  #         media: images
+  #     - { name: excerpt, label: Short Summary, type: text }
+  #     - { name: body, label: Article Body, type: rich-text }
