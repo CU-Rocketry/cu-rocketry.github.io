@@ -115,4 +115,11 @@ sections:
     divider:
       style: concave-down
       stroke: gold
+  - type: pdfEmbed
+    theme: white
+    text: Poster for IREC conference day
+    pdfUrl: /media/docs/2026/irec2026team81clarkson-universityposter-session-materials.pdf
+    divider:
+      style: zigzag
+      stroke: gold
 ---
