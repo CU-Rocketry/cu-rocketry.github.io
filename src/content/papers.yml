@@ -1,3 +1,12 @@
-intro: Technical reports and competition documentation.
-documents: []
-sections: []
+intro: >-
+  # Papers
+
+
+  For your reference, we have included a listing of all papers written by
+  Clarkson University Rocketry, including our IREC technical reports as well as
+  documentation of specific projects.
+documents:
+  - title: "Aurora: Clarkson University Rocketry’s Third Return to IREC"
+    year: "2026"
+    summary: CUR's Project Technical Report for IREC 2026
+    pdfUrl: /media/docs/2026/irec2026team81clarkson-universityproject-technical-report.pdf
