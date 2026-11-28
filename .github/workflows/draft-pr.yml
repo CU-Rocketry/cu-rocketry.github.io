@@ -30,14 +30,18 @@ jobs:
           # Exit cleanly if draft has no new commits ahead of master
           AHEAD=$(git rev-list --count origin/master..origin/draft)
           if [ "$AHEAD" -eq 0 ]; then
-            echo "Cancelled b/c no new changes on draft"
+            echo "::warning title=Nothing to publish::No new commits on draft ahead of master."
+            echo "Nothing to publish" >> "$GITHUB_STEP_SUMMARY"
+            echo "No new commits were found on \`draft\` ahead of \`master\`." >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
 
           # Exit cleanly if a draft -> master PR is already open
           EXISTING_PR=$(gh pr list --head draft --base master --state open --json url --jq '.[0].url')
           if [ -n "$EXISTING_PR" ]; then
-            echo "Cancelled b/c the following PR is already open for review: $EXISTING_PR"
+            echo "::notice title=PR already open::A review PR is already open: $EXISTING_PR"
+            echo "### Review PR already open" >> "$GITHUB_STEP_SUMMARY"
+            echo "New commits on \`draft\` are automatically included in the existing PR: [$EXISTING_PR]($EXISTING_PR)" >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
 
