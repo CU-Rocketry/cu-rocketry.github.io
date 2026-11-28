@@ -237,7 +237,7 @@ content:
           - name: pdfEmbed
             component: pdfEmbed
 
-  # --- 2. Home Subteams & Eboard (Landing Page Sections) ---
+  # Subteams and Eboard listing on landing page
   - name: about
     label: About
     type: file
@@ -318,7 +318,7 @@ content:
             type: boolean
             default: true
       - name: sections
-        label: Extra Page Sections
+        label: Extra Sections
         type: block
         list: true
         blockKey: type
@@ -359,7 +359,7 @@ content:
               media: docs
               extensions: [pdf]
       - name: sections
-        label: Extra Page Sections (Optional)
+        label: Extra Sections
         type: block
         list: true
         blockKey: type
@@ -395,7 +395,7 @@ content:
         options:
           media: images
       - name: sections
-        label: Page Sections
+        label: Extra Sections
         type: block
         list: true
         blockKey: type
@@ -431,7 +431,7 @@ content:
         options:
           media: images
       - name: sections
-        label: Page Sections
+        label: Extra Sections
         type: block
         list: true
         blockKey: type
