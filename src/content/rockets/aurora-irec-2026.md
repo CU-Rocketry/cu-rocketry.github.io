@@ -114,9 +114,9 @@ sections:
       unintentionally separated.
     divider:
       style: concave-down
-      stroke: gold
+      stroke: none
   - type: pdfEmbed
-    theme: white
+    theme: warm-light
     text: Poster for IREC conference day
     pdfUrl: /media/docs/2026/irec2026team81clarkson-universityposter-session-materials.pdf
     divider:
