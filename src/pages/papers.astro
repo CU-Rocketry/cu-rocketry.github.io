@@ -20,8 +20,7 @@ const afterDocsTheme = sections[0]?.theme || "green";
 
   {documents.map((doc, index) => (
     <PdfViewer
-      title={`${doc.title}${doc.year ? ` (${doc.year})` : ""}`}
-      summary={doc.summary}
+      text={`## ${doc.title}${doc.year ? ` (${doc.year})` : ""}${doc.summary ? `\n\n${doc.summary}` : ""}`}
       pdfUrl={doc.pdfUrl}
       theme="white"
       nextTheme={index < documents.length - 1 ? "white" : afterDocsTheme}

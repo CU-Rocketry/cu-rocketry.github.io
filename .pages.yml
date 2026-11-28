@@ -220,6 +220,22 @@ content:
           - { name: instagram, label: Instagram URL, type: string }
           - { name: linkedin, label: LinkedIn URL, type: string }
           - { name: discord, label: Discord Invite URL, type: string }
+      - name: sections
+        label: Additional Sections
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - name: splitBand
+            component: splitBand
+          - name: textBand
+            component: textBand
+          - name: accordion
+            component: accordion
+          - name: peopleGrid
+            component: peopleGrid
+          - name: pdfEmbed
+            component: pdfEmbed
 
   # --- 2. Home Subteams & Eboard (Landing Page Sections) ---
   - name: about
@@ -275,12 +291,6 @@ content:
       - name: intro
         label: Sponsors Page Intro
         type: rich-text
-      - name: brochurePdfUrl
-        label: Sponsorship Brochure PDF
-        type: file
-        options:
-          media: docs
-          extensions: [pdf]
       - name: list
         label: Sponsor List
         type: object
@@ -365,20 +375,20 @@ content:
           - name: pdfEmbed
             component: pdfEmbed
 
-  # --- 5. Projects (Alternating Color Band Pages like Aurora) ---
-  - name: projects
-    label: Projects
+  # --- 5. Rockets ---
+  - name: rockets
+    label: Rockets
     type: collection
-    path: src/content/projects
+    path: src/content/rockets
     filename: "{primary}.md"
     view:
       fields: [title, year, featured]
       sort: [year, title]
       default: { sort: year, order: desc }
     fields:
-      - { name: title, label: Project Name, type: string, required: true }
-      - { name: year, label: Year, type: string, required: true }
-      - { name: featured, label: Show in Projects Dropdown, type: boolean, default: true }
+      - { name: title, label: Rocket Name, type: string, required: true }
+      - { name: year, label: Competition Year, type: string, required: true, description: "Used to sort rockets newest-first in the dropdown" }
+      - { name: featured, label: Show in Dropdown, type: boolean, default: true }
       - name: heroImage
         label: Header Image
         type: image
@@ -401,25 +411,38 @@ content:
           - name: pdfEmbed
             component: pdfEmbed
 
-  # --- 6. Blog Posts / Build Logs ---
-  # - name: blog
-  #   label: Blog Posts
-  #   type: collection
-  #   path: src/content/blog
-  #   filename: "{year}-{month}-{day}-{primary}.md"
-  #   view:
-  #     fields: [title, date, draft]
-  #     sort: [date, title]
-  #     default: { sort: date, order: desc }
-  #   fields:
-  #     - { name: title, label: Post Title, type: string, required: true }
-  #     - { name: date, label: Publish Date, type: date, required: true }
-  #     - { name: author, label: Author, type: string }
-  #     - { name: draft, label: Draft, type: boolean, default: false }
-  #     - name: coverImage
-  #       label: Cover Image
-  #       type: image
-  #       options:
-  #         media: images
-  #     - { name: excerpt, label: Short Summary, type: text }
-  #     - { name: body, label: Article Body, type: rich-text }
+  # --- 6. Projects ---
+  - name: projects
+    label: Projects
+    type: collection
+    path: src/content/projects
+    filename: "{primary}.md"
+    view:
+      fields: [title, featured, order]
+      sort: [order, title]
+      default: { sort: order, order: asc }
+    fields:
+      - { name: title, label: Project Name, type: string, required: true }
+      - { name: order, label: Dropdown Order, type: number, default: 99, description: "Controls dropdown order (lower numbers appear first)" }
+      - { name: featured, label: Show in Dropdown, type: boolean, default: true }
+      - name: heroImage
+        label: Header Image
+        type: image
+        options:
+          media: images
+      - name: sections
+        label: Page Sections
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - name: splitBand
+            component: splitBand
+          - name: textBand
+            component: textBand
+          - name: accordion
+            component: accordion
+          - name: peopleGrid
+            component: peopleGrid
+          - name: pdfEmbed
+            component: pdfEmbed

@@ -4,6 +4,7 @@ import Hero from "../components/Hero.astro";
 import Divider from "../components/Divider.astro";
 import SubteamAccordion from "../components/SubteamAccordion.astro";
 import Eboard from "../components/Eboard.astro";
+import SectionRenderer from "../components/SectionRenderer.astro";
 import SponsorMarquee from "../components/SponsorMarquee.astro";
 import { loadYaml, renderMarkdown } from "../lib/content.js";
 
@@ -13,12 +14,16 @@ const about = loadYaml("about.yml");
 
 const missionTheme = settings.missionTheme || "white";
 const subteamsTheme = about.subteamsTheme || "white";
-const eboardTheme = about.eboardTheme || "light";
+const eboardTheme = about.eboardTheme || "warm-light";
 const marqueeTheme = "white";
+const settingsSections = settings.sections || [];
 
 const hasMissionDivider = settings.missionDivider?.style && settings.missionDivider.style !== "none";
 const activeMarquee = (sponsors.list || []).filter((s) => s.showInMarquee !== false && s.logo);
-const afterEboardTheme = activeMarquee.length > 0 ? marqueeTheme : "green";
+const afterSectionsTheme = activeMarquee.length > 0 ? marqueeTheme : "green";
+const afterEboardTheme = settingsSections.length > 0
+  ? (settingsSections[0]?.theme || afterSectionsTheme)
+  : afterSectionsTheme;
 ---
 
 <BaseLayout>
@@ -57,6 +62,10 @@ const afterEboardTheme = activeMarquee.length > 0 ? marqueeTheme : "green";
     divider={about.eboardDivider}
     nextTheme={afterEboardTheme}
   />
+
+  {settingsSections.length > 0 && (
+    <SectionRenderer sections={settingsSections} footerTheme={afterSectionsTheme} />
+  )}
 
   <SponsorMarquee sponsors={sponsors.list || []} theme={marqueeTheme} nextTheme="green" />
 </BaseLayout>

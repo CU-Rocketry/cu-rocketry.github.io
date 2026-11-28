@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import SectionRenderer from "../../components/SectionRenderer.astro";
+import { loadMarkdownCollection } from "../../lib/content.js";
+
+export function getStaticPaths() {
+  return loadMarkdownCollection("rockets").map((rocket) => ({
+    params: { slug: rocket.slug },
+    props: { rocket },
+  }));
+}
+
+const { rocket } = Astro.props;
+const blocks = rocket.data.sections || [];
+const firstTheme = blocks[0]?.theme || "green";
+---
+
+<BaseLayout title={rocket.data.title}>
+  {rocket.data.heroImage ? (
+    <Hero
+      title={rocket.data.title}
+      fallbackImage={rocket.data.heroImage}
+      nextTheme={firstTheme}
+    />
+  ) : (
+    <section class="cur-band cur-band--green">
+      <div class="cur-container">
+        <h1>{rocket.data.title}</h1>
+      </div>
+    </section>
+  )}
+
+  <SectionRenderer sections={blocks} footerTheme="green" />
+</BaseLayout>

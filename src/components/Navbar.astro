@@ -3,12 +3,34 @@ import { loadYaml, loadMarkdownCollection } from "../lib/content.js";
 
 const settings = loadYaml("settings.yml");
 const socials = settings.socials || {};
+
+const sortByYearDescThenTitle = (a, b) => {
+  const yearDiff = String(b.data.year || "").localeCompare(String(a.data.year || ""));
+  return yearDiff !== 0
+    ? yearDiff
+    : String(a.data.title || "").localeCompare(String(b.data.title || ""));
+};
+
+const sortByOrderThenTitle = (a, b) => {
+  const orderDiff = (a.data.order ?? 99) - (b.data.order ?? 99);
+  return orderDiff !== 0
+    ? orderDiff
+    : String(a.data.title || "").localeCompare(String(b.data.title || ""));
+};
+
+const rockets = loadMarkdownCollection("rockets")
+  .filter((r) => r.data.featured !== false)
+  .sort(sortByYearDescThenTitle);
+
 const projects = loadMarkdownCollection("projects")
   .filter((p) => p.data.featured !== false)
-  .sort((a, b) => String(b.data.year).localeCompare(String(a.data.year)));
+  .sort(sortByOrderThenTitle);
 
 const currentPath = Astro.url.pathname;
-const isActive = (href) => (currentPath === href ? "page" : undefined);
+const isActive = (href) =>
+  currentPath === href || (href !== "/" && currentPath === `${href}/`) ? "page" : undefined;
+const isRocketsActive = currentPath.startsWith("/rockets/") ? "page" : undefined;
+const isProjectsActive = currentPath.startsWith("/projects/") ? "page" : undefined;
 ---
 
 <header class="cur-header">
@@ -35,21 +57,40 @@ const isActive = (href) => (currentPath === href ? "page" : undefined);
     <nav id="cur-primary-nav" class="cur-nav" aria-label="Main navigation">
       <ul class="cur-nav__list">
         <li><a class="cur-nav__link" href="/" aria-current={isActive("/")}>Home</a></li>
-        <li class="cur-nav__item--has-sub">
-          <a class="cur-nav__link" href={projects[0] ? `/projects/${projects[0].slug}` : "#"}>
-            Projects ▾
-          </a>
-          {projects.length > 0 && (
+        {rockets.length > 0 && (
+          <li class="cur-nav__item--has-sub">
+            <a class="cur-nav__link" href={`/rockets/${rockets[0].slug}`} aria-current={isRocketsActive}>
+              Rockets ▾
+            </a>
             <ul class="cur-nav__submenu">
-              {projects.map((project) => (
-                <li><a href={`/projects/${project.slug}`}>{project.data.title}</a></li>
+              {rockets.map((rocket) => (
+                <li>
+                  <a href={`/rockets/${rocket.slug}`} aria-current={isActive(`/rockets/${rocket.slug}`)}>
+                    {rocket.data.title}
+                  </a>
+                </li>
               ))}
             </ul>
-          )}
-        </li>
+          </li>
+        )}
+        {projects.length > 0 && (
+          <li class="cur-nav__item--has-sub">
+            <a class="cur-nav__link" href={`/projects/${projects[0].slug}`} aria-current={isProjectsActive}>
+              Projects ▾
+            </a>
+            <ul class="cur-nav__submenu">
+              {projects.map((project) => (
+                <li>
+                  <a href={`/projects/${project.slug}`} aria-current={isActive(`/projects/${project.slug}`)}>
+                    {project.data.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        )}
         <li><a class="cur-nav__link" href="/papers" aria-current={isActive("/papers")}>Papers</a></li>
         <li><a class="cur-nav__link" href="/sponsors" aria-current={isActive("/sponsors")}>Sponsors</a></li>
-        <li><a class="cur-nav__link" href="/blog" aria-current={isActive("/blog")}>Blog</a></li>
       </ul>
     </nav>
 
@@ -246,7 +287,7 @@ const isActive = (href) => (currentPath === href ? "page" : undefined);
     display: block;
   }
 
-  /* Dropdown Support for Projects / Blog */
+  /* Dropdown nav items */
   .cur-nav__item--has-sub {
     position: relative;
   }
