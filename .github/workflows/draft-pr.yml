@@ -30,7 +30,7 @@ jobs:
           # Exit cleanly if draft has no new commits ahead of master
           AHEAD=$(git rev-list --count origin/master..origin/draft)
           if [ "$AHEAD" -eq 0 ]; then
-            echo "::warning title=Nothing to publish::No new commits on draft ahead of master."
+            echo "::notice title=Nothing to publish::No new commits on draft ahead of master."
             echo "Nothing to publish" >> "$GITHUB_STEP_SUMMARY"
             echo "No new commits were found on \`draft\` ahead of \`master\`." >> "$GITHUB_STEP_SUMMARY"
             exit 0
