@@ -336,15 +336,15 @@ content:
 
   # --- 4. Papers & Technical Reports ---
   - name: papers
-    label: Papers & Reports
+    label: Papers
     type: file
     path: src/content/papers.yml
     fields:
       - name: intro
-        label: Papers Intro
+        label: Introduction text
         type: rich-text
       - name: documents
-        label: Published Papers / Reports
+        label: Papers
         type: object
         list: true
         fields:
