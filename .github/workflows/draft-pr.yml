@@ -46,12 +46,12 @@ jobs:
           fi
 
           # Parse title, summary, and triggering user from Pages CMS JSON payload
-          TITLE=$(jq -r '.inputs.title' // "Update website" <<< "$PAGES_PAYLOAD")
+          TITLE=$(jq -r '.inputs.title // "Update website"' <<< "$PAGES_PAYLOAD")
           SUMMARY=$(jq -r '.inputs.summary // "Content updates in Pages CMS"' <<< "$PAGES_PAYLOAD")
           AUTHOR=$(jq -r '.triggeredBy.githubUsername // .triggeredBy.name // "Pages CMS"' <<< "$PAGES_PAYLOAD")
 
           gh pr create \
             --base master \
             --head draft \
-            --title "$TITLE" \
-            --body "$(printf "%s\n\nTriggered from Pages CMS by @%s." "$SUMMARY" "$AUTHOR")"
+            --title="$TITLE" \
+            --body="$(printf "%s\n\nTriggered from Pages CMS by @%s." "$SUMMARY" "$AUTHOR")"
