@@ -1,6 +1,6 @@
 ---
 title: Air Brakes
-order: 10
+order: 1
 featured: true
 heroImage: /media/images/airbrakes-nextpcb-2026.webp
 sections:
@@ -9,9 +9,8 @@ sections:
     imageSide: left
     image: /media/images/airbrakes-nextpcb-2026.webp
     caption: Air Brakes active control system with flaps deployed
-    text: >-
+    text: |-
       ## Active Apogee Control
-
 
       Placeholder project overview. Edit or expand this section in Pages CMS.
     divider:
