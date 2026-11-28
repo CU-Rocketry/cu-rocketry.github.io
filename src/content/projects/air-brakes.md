@@ -46,7 +46,7 @@ sections:
       surrounding the rocket body. With a total wetted area of 10.18 in², the
       total drag force on the rocket nearly doubles to a maximum of 222.6 lbf if
       deployed after burnout, providing the necessary energy dissipation to
-      reduce apogee. A primary design considerations included the need for
+      reduce apogee. A primary design consideration included the need for
       airflow to reattach to the fins to maintain stable flight during
       deployment, which was validated with CFD analysis and two years of flight
       heritage. The brake flaps ride along linear rails to bear the aerodynamic
