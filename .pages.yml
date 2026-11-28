@@ -446,3 +446,23 @@ content:
             component: peopleGrid
           - name: pdfEmbed
             component: pdfEmbed
+
+actions:
+  - name: draft-pr
+    label: Submit draft PR for review
+    workflow: draft-pr.yml
+    ref: master
+    cancelable: false
+    confirm:
+      title: Submit draft for review?
+      message: Creates a pull request from draft to master for admin approval.
+      button: Open PR
+    fields:
+      - name: title
+        label: Pull request title
+        type: text
+        required: true
+      - name: summary
+        label: Summary of changes
+        type: textarea
+        required: true
