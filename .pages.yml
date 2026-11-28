@@ -221,7 +221,7 @@ content:
           - { name: linkedin, label: LinkedIn URL, type: string }
           - { name: discord, label: Discord Invite URL, type: string }
       - name: sections
-        label: Additional Sections
+        label: Extra Sections
         type: block
         list: true
         blockKey: type
